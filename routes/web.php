@@ -1,5 +1,10 @@
 <?php
 
+use App\Livewire\AllArticles;
+use App\Livewire\Articles;
+use App\Livewire\ArticleShow;
+
+use App\Livewire\CreateArticle;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,3 +20,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/articles', AllArticles::class)->name('article.index');
+Route::get('/article/create', Articles::class)->name('article.create');
+Route::get('/articles/{article:slug}', ArticleShow::class)->name('article.show');
