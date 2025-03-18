@@ -16,7 +16,7 @@ class AllArticles extends Component
         $this->articles = Article::all();
     }
 
-    #[Layout('layouts.guest')]
+    #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.all-articles');

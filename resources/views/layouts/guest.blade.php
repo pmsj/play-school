@@ -11,7 +11,8 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-       
+        <!-- wireui -->
+        <wireui:scripts />
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <!-- Styles -->
@@ -38,8 +39,8 @@
             </main>
         </div>
 
-        @stack('modals')
-    <!-- livewirescriptConfig is beign used by custom Alpine directive - humanDate -->
+
+    <!-- important! livewirescriptConfig is beign used by custom Alpine directive - humanDate -->
         @livewireScriptConfig 
     </body>
 </html>

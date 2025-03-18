@@ -9,20 +9,50 @@
 
     <x-slot name="form">
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="current_password" value="{{ __('Current Password') }}" />
-            <x-input id="current_password" type="password" class="mt-1 block w-full" wire:model="state.current_password" autocomplete="current-password" />
+            <!-- <x-label for="current_password" value="{{ __('Current Password') }}" /> -->
+            <!-- <x-input id="current_password" type="password" class="mt-1 block w-full" wire:model="state.current_password" autocomplete="current-password" /> -->
+            <x-wui-input
+                    wire:model="state.current_password"
+                    class="w-full"
+                    type="password"
+                    for="state.name"
+                    icon="user"
+                    right-icon="pencil"
+                    label="Current Password"
+                    placeholder="your name"
+                />
             <x-input-error for="current_password" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="password" value="{{ __('New Password') }}" />
-            <x-input id="password" type="password" class="mt-1 block w-full" wire:model="state.password" autocomplete="new-password" />
+            <!-- <x-label for="password" value="{{ __('New Password') }}" />
+            <x-input id="password" type="password" class="mt-1 block w-full" wire:model="state.password" autocomplete="new-password" /> -->
+            <x-wui-input
+                    wire:model="state.password"
+                    class="w-full"
+                    type="password"
+                    for="state.name"
+                    icon="user"
+                    right-icon="pencil"
+                    label="New Password"
+                    placeholder="your name"
+                />
             <x-input-error for="password" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-            <x-input id="password_confirmation" type="password" class="mt-1 block w-full" wire:model="state.password_confirmation" autocomplete="new-password" />
+            <!-- <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+            <x-input id="password_confirmation" type="password" class="mt-1 block w-full" wire:model="state.password_confirmation" autocomplete="new-password" /> -->
+            <x-wui-input
+                    wire:model="state.password_confirmation"
+                    class="w-full"
+                    type="password"
+                    for="state.name"
+                    icon="user"
+                    right-icon="pencil"
+                    label="Confirm Password"
+                    placeholder="your name"
+                />
             <x-input-error for="password_confirmation" class="mt-2" />
         </div>
     </x-slot>

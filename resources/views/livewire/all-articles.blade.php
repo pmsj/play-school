@@ -14,7 +14,7 @@
                     <div class="">
                         <a href="{{ route('article.create') }}">
                             <div class="bg-white rounded-3xl">
-                               <x-button class="rounded-3xl">
+                               <x-button class="rounded-3xl bg-secondary">
                                  Create an article
                                </x-button>
                             </div>
@@ -53,7 +53,7 @@
                 @foreach($articles as $article)
                     <a href="{{ route('article.show', $article->slug)}}">
                         <div class="my-5">
-                        <div class="space-y-2 p-5 bg-slate-50 rounded-2xl shadow-sm">
+                        <div class="space-y-2 p-5 bg-negative rounded-2xl shadow-sm">
                             <div class="bg-slate-500 opacity-20 h-28 rounded-t-2xl">
                                 <img src="https://unsplash.com/photos/a-tall-blue-building-with-a-clock-on-its-side-fWBZpKTQ_4U" alt="" srcset="">
                             </div>
