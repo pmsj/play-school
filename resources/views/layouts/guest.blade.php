@@ -15,14 +15,15 @@
         <wireui:scripts />
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <!-- Styles -->
-        @livewireStyles
+   
     </head>
     <body class="font-sans antialiased">
-        <div><p class="text-xl font-bold">Pulling from guest layout</p></div>
+        <div class="text-center"><p class="text-xl font-bold">Pulling from guest layout</p></div>
 
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+            @auth
+                @livewire('navigation-menu')
+            @endauth
 
             <!-- Page Heading -->
             @if (isset($header))

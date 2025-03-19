@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Profile;
 
 use Livewire\Component;
 use Livewire\Attributes\Layout;
@@ -66,6 +66,6 @@ class UpdatePasswordForm extends Component
      #[Layout('layouts.dashboard')]
     public function render()
     {
-        return view('livewire.update-password-form');
+        return view('livewire..profile.update-password-form');
     }
 }

@@ -1,18 +1,14 @@
 <?php
 
 use App\Livewire\Articles;
-use App\Livewire\Dashboard;
 use App\Livewire\AllArticles;
-
 use App\Livewire\ArticleShow;
 use App\Livewire\CreateArticle;
-use App\Livewire\DeleteUserForm;
-use App\Livewire\Profile\ProfileInfo;
+use App\Livewire\Profile\DeleteUserForm;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Profile\UpdatePassword;
-use App\Livewire\Security;
-use App\Livewire\UpdatePasswordForm;
-use App\Livewire\UpdateProfileInformationForm;
+use App\Livewire\Profile\Security;
+use App\Livewire\Profile\UpdatePasswordForm;
+use App\Livewire\Profile\UpdateProfileInformationForm;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,7 +19,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/user/dashboard', Dashboard::class)->name('user.dashboard');
+    Route::get('/dashboard', function () {
+        return view('layouts.dashboard');
+    })->name('user.dashboard');
 
     Route::get('/user/profile/info', UpdateProfileInformationForm::class)->name('profile.info');
     Route::get('/user/profile/password', UpdatePasswordForm::class)->name('profile.password');

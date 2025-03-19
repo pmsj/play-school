@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Profile;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
@@ -177,6 +177,6 @@ class TwoFactorAuthenticationForm extends Component
      */
     public function render()
     {
-        return view('livewire.two-factor-authentication-form');
+        return view('livewire.profile.two-factor-authentication-form');
     }
 }

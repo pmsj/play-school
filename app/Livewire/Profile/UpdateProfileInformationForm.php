@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Profile;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -116,6 +116,6 @@ class UpdateProfileInformationForm extends Component
      #[Layout('layouts.dashboard')]
     public function render()
     {
-        return view('livewire.update-profile-information-form');
+        return view('livewire.profile.update-profile-information-form');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Profile;
 
 use Livewire\Component;
 use Illuminate\Contracts\Auth\StatefulGuard;
@@ -136,6 +136,6 @@ class LogoutOtherBrowserSessionsForm extends Component
      */
     public function render()
     {
-        return view('livewire.logout-other-browser-sessions-form');
+        return view('livewire.profile.logout-other-browser-sessions-form');
     }
 }

@@ -1,4 +1,4 @@
-<div x-cloak>
+<div>
 <x-action-section>
     <x-slot name="title">
         {{ __('Two Factor Authentication') }}

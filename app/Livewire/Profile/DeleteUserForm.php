@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Profile;
 
 use Livewire\Component;
 use Illuminate\Http\Request;
@@ -83,6 +83,6 @@ class DeleteUserForm extends Component
      #[Layout('layouts.dashboard')]
     public function render()
     {
-        return view('profile.delete-user-form');
+        return view('livewire.profile.delete-user-form');
     }
 }
