@@ -1,5 +1,5 @@
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+    <h2 class="font-semibold text-xl leading-tight">
         All Articles
     </h2>
 </x-slot>
@@ -7,16 +7,16 @@
 <div class="flex flex-col py-12 space-y-6">
     <div>
         <!-- left area in 2column grid layout -->
-        <div class="mx-auto max-w-7xl grid lg:grid-cols-[1fr_2fr] gap-2 p-5 relative">
+        <div class="mx-auto max-w-7xl grid lg:grid-cols-[1fr_2fr] gap-2 p-5">
             <!-- top most div on left -->
-            <div class="justify-start ticky top-0 z-10">
+            <div class="justify-start lg:sticky lg:top-10 lg:z-10">
                 <div class="lg:cols-span-3 flex flex-col space-y-2  mr-16 text-center">
                     <div class="">
                         <a href="{{ route('article.create') }}">
                             <div class="bg-white rounded-3xl">
-                               <x-button class="rounded-3xl bg-secondary">
+                               <x-wui-button class="rounded-3xl bg-primary">
                                  Create an article
-                               </x-button>
+                               </x-wui-button>
                             </div>
                         </a>
                     </div>
@@ -52,9 +52,9 @@
                 <!-- bottom div -->
                 @foreach($articles as $article)
                         <div class="my-5">
-                        <div class="space-y-2 p-5 bg-negative rounded-2xl shadow-sm">
+                        <div class="space-y-2 p-5 bg-blue-50 bg-opacity-40 rounded-2xl shadow-sm">
                             <a href="{{ route('article.show', $article->slug)}}">
-                                <div class="bg-slate-500 opacity-20 h-28 rounded-t-2xl">
+                                <div class="bg-slate-300 opacity-20 h-28 rounded-t-2xl">
                                     <img src="https://unsplash.com/photos/a-tall-blue-building-with-a-clock-on-its-side-fWBZpKTQ_4U" alt="" srcset="">
                                 </div>
                                         <livewire:tags />

@@ -10,7 +10,7 @@
         <x-slot name="description">{{ $description }}</x-slot>
     </x-section-title>
 
-    <div class="mt-5 md:mt-0 md:col-span-2">
+    <div class="mt-5 md:mt-0 md:col-span-2 text-info">
         <form wire:submit="{{ $submit }}">
             <div class="px-4 py-5  sm:p-6  {{ isset($actions) ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md' }}">
                 <div class="grid grid-cols-6 gap-6">

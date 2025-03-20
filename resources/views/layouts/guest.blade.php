@@ -17,7 +17,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
    
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased text-info">
         <div class="text-center"><p class="text-xl font-bold">Pulling from guest layout</p></div>
 
         <div class="min-h-screen bg-gray-100">
@@ -35,7 +35,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="">
                 {{ $slot }}
             </main>
         </div>

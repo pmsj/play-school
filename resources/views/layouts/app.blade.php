@@ -14,18 +14,16 @@
         <!-- wireui -->
         <wireui:scripts />
 
-        @livewireStyles
-        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased text-slate-800">
+    <body class="font-sans antialiased text-info">
         <x-banner />
 
         <div class="min-h-screen bg-sky-50 bg-opacity-20">
             @livewire('navigation-menu')
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="shadow">
+                <header class="shadow bg-blue-50">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
@@ -37,6 +35,6 @@
                 {{ $slot }}
             </main>
         </div>
-        @livewireScripts
+        @livewireScriptConfig
     </body>
 </html>

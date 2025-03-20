@@ -6,9 +6,9 @@
                 <x-textarea wire:model="form.body" placeholder="post a comment" class="w-full" rows="4" />
                 <x-input-error for="form.body" />
             </div>
-            <x-button class="mt-2">
+            <x-wui-button class="mt-2 bg-info">
                 Post a comment
-            </x-button>
+            </x-wui-button>
         </form>
     @endauth
     @if($comments->count())

@@ -26,12 +26,12 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                primary: '#FFE700', // like yellow
-                secondary: '#00FF9C', //
-                positive: '#FA4032', 
-                negative: '#FEFFA7', // Pink | for background FFE700
+                primary: '#19A7CE', // Main Theme: Vibrant & playful blue, great for buttons and key UI elements)
+                secondary: '#B0DAFF', // (Soft sky blue, good for backgrounds and sections))
+                positive: '#FEFF86 ', // Accent 1 | (Bright yellow, great for highlights, call-to-action buttons, and playful elements)
+                negative: '#FF6B6B ', // Accent 2 | Pink | for background FFE700
                 warning: '#FAB12F', 
-                info: '#F7418F', //button
+                info: '#146C94 ', // (Dark blue, good for headings, text, or navbar elements)
             },
         },
     },
