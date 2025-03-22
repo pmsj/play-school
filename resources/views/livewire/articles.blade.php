@@ -5,6 +5,9 @@
 </x-slot>
 
  <div class="mx-auto max-w-3xl mt-10 bg-white rounded-2xl">
+    @if (session()->has('message'))
+        <x-wui-alert title="{{ session('message') }} " positive squared class="bg-green-200"/>
+    @endif
     <div class="shadow p-5 rounded">
         <form wire:submit="createArticle">
            <div class="space-y-4">
@@ -17,6 +20,11 @@
                     <div><label for="">Body</label></div>
                     <div><x-textarea wire:model="form.body" type="text" class="w-full" rows="5"/></div>
                     <x-input-error for="form.body" />
+                </div>
+                <div class="space-y-2">
+                    <div><label for="">Upload an image</label></div>
+                    <div><x-wui-input wire:model="form.photo" type="file" class="w-full" rows="5"/></div>
+                    <x-input-error for="form.photo" />
                 </div>
                 <div class="space-y-2">
                     <x-button>

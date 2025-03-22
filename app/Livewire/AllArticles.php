@@ -13,7 +13,7 @@ class AllArticles extends Component
     public function mount()
     {
         // Fetch all articles from the database
-        $this->articles = Article::all();
+        $this->articles = Article::with('user')->latest()->get();
     }
 
     #[Layout('layouts.app')]

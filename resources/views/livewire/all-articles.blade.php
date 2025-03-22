@@ -9,8 +9,8 @@
         <!-- left area in 2column grid layout -->
         <div class="mx-auto max-w-7xl grid lg:grid-cols-[1fr_2fr] gap-2 p-5">
             <!-- top most div on left -->
-            <div class="justify-start lg:sticky lg:top-10 lg:z-10">
-                <div class="lg:cols-span-3 flex flex-col space-y-2  mr-16 text-center">
+            <div class="justify-start lg:z-10">
+                <div class="lg:cols-span-3 flex flex-col space-y-2  mr-16 text-center lg:sticky top-32 h-auto">
                     <div class="">
                         <a href="{{ route('article.create') }}">
                             <div class="bg-white rounded-3xl">
@@ -52,10 +52,14 @@
                 <!-- bottom div -->
                 @foreach($articles as $article)
                         <div class="my-5">
-                        <div class="space-y-2 p-5 bg-blue-50 bg-opacity-40 rounded-2xl shadow-sm">
+                        <div class="space-y-2 p-5 bg-blue-100 bg-opacity-40 rounded-2xl shadow-sm">
                             <a href="{{ route('article.show', $article->slug)}}">
-                                <div class="bg-slate-300 opacity-20 h-28 rounded-t-2xl">
-                                    <img src="https://unsplash.com/photos/a-tall-blue-building-with-a-clock-on-its-side-fWBZpKTQ_4U" alt="" srcset="">
+                                <div class="h-28 w-full object-contain rounded-t-2xl overflow-hidden border-primary ">
+                                   
+                                        @if ($article->getFirstMediaUrl('articles'))
+                                            <img src="{{ $article->getFirstMediaUrl('articles') }}" alt="{{ $article->title }}" class="w-full h-auto">
+                                        @endif
+                            
                                 </div>
                                         <livewire:tags />
                                 <div class="text-xl font-extrabold hover:underline">{{ $article->title }}</div>

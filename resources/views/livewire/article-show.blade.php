@@ -51,12 +51,16 @@
                         <div class="mt-10 space-y-2">
                             <div class="text-2xl font-bold">{{ $article->title }}</div>
                             <div class="flex text-sm space-x-2">
-                                <div class="">date and time</div>
-                                <div>mins read</div>
+                                <div class="">{{ $article->created_at->format('F j, Y, g:i a') }}</div>
+                                <div class="">{{ $article->read_time }} mins read</div>
                             </div>
                         </div>
                         <div class="space-y-4">
-                            <div class="bg-slate-200 h-36 rounded-md text-center">Photo</div>
+                            <div class="w-full h-auto text-center ">
+                                @if ($article->getFirstMediaUrl('articles'))
+                                    <img src="{{ $article->getFirstMediaUrl('articles') }}" alt="{{ $article->title }}" class="rounded-lg w-full h-full object-contain">
+                                @endif
+                            </div>
                             <div>
                                 {{ $article->body }}
                             </div>

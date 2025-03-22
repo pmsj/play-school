@@ -8,17 +8,26 @@ use App\Models\User;
 use App\Models\Comment;
 use App\TaggableTrait;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Article extends Model
+class Article extends Model implements HasMedia
 {
-    Use HasFactory, TaggableTrait, CommentableTrait;
-
-    protected $guarded = ['id'];
+    Use HasFactory, TaggableTrait, CommentableTrait, InteractsWithMedia;
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
     
+    // In your Article model (e.g., Article.php)
+    public function getReadTimeAttribute()
+    {
+        $wordCount = str_word_count(strip_tags($this->body));
+        $averageReadingSpeed = 200; // words per minute
+        $readTime = ceil($wordCount / $averageReadingSpeed);
+
+        return $readTime;
+    }
 }
