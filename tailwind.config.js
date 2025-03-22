@@ -29,7 +29,7 @@ export default {
                 primary: '#19A7CE', // Main Theme: Vibrant & playful blue, great for buttons and key UI elements)
                 secondary: '#B0DAFF', // (Soft sky blue, good for backgrounds and sections))
                 positive: '#FEFF86 ', // Accent 1 | (Bright yellow, great for highlights, call-to-action buttons, and playful elements)
-                negative: '#FF6B6B ', // Accent 2 | Pink | for background FFE700
+                negative: '#FF6B6B', // Accent 2 | Pink | for background FFE700
                 warning: '#FAB12F', 
                 info: '#146C94 ', // (Dark blue, good for headings, text, or navbar elements)
             },

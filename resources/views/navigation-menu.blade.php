@@ -11,11 +11,13 @@
                 </div>
 
                 <!-- Navigation Links -->
+                 @auth
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('user.dashboard') }}" :active="request()->routeIs('user.dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                @endauth
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link  href="{{ route('article.index') }}" :active="request()->routeIs('article.index')">
                         {{ __('Articles') }}

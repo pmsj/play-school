@@ -9,10 +9,9 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Profile\Security;
 use App\Livewire\Profile\UpdatePasswordForm;
 use App\Livewire\Profile\UpdateProfileInformationForm;
+use App\Livewire\Website;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', Website::class)->name('home.website');
 
 Route::middleware([
     'auth:sanctum',

@@ -18,12 +18,10 @@
    
     </head>
     <body class="font-sans antialiased text-info">
-        <div class="text-center"><p class="text-xl font-bold">Pulling from guest layout</p></div>
-
         <div class="min-h-screen bg-gray-100">
-            @auth
+            @guest
                 @livewire('navigation-menu')
-            @endauth
+            @endguest
 
             <!-- Page Heading -->
             @if (isset($header))
