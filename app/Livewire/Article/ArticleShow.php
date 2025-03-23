@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Article;
 
 use App\Models\Article;
 use Livewire\Component;
@@ -13,6 +13,6 @@ class ArticleShow extends Component
     #[Layout('layouts.guest')]
     public function render()
     {
-        return view('livewire.article-show');
+        return view('livewire.article.article-show');
     }
 }

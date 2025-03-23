@@ -8,8 +8,8 @@
             <!-- left area in 2column grid layout -->
             <div class="mx-auto max-w-7xl grid lg:grid-cols-[1fr_2fr] gap-2 p-5 relative space-x-10">
                 <!-- top most div on left -->
-                <div class="justify-start ticky top-0 z-10 bg-slate-50">
-                    <div class="lg:cols-span-3 flex flex-col space-y-2  mr-16">
+                <div class="justify-start">
+                    <div class="lg:cols-span-3 flex flex-col space-y-2  mr-16 lg:sticky top-16">
                         <div class="">
                             <a href="#">
                                 <div class="border-b-2">

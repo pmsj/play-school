@@ -1,15 +1,17 @@
 <?php
 
-use App\Livewire\Articles;
-use App\Livewire\AllArticles;
-use App\Livewire\ArticleShow;
+
+use App\Livewire\Website;
+
+use App\Livewire\Article\Articles;
+use App\Livewire\Article\ArticleShow;
 use App\Livewire\CreateArticle;
-use App\Livewire\Profile\DeleteUserForm;
-use Illuminate\Support\Facades\Route;
 use App\Livewire\Profile\Security;
+use App\Livewire\Article\AllArticles;
+use Illuminate\Support\Facades\Route;
+use App\Livewire\Profile\DeleteUserForm;
 use App\Livewire\Profile\UpdatePasswordForm;
 use App\Livewire\Profile\UpdateProfileInformationForm;
-use App\Livewire\Website;
 
 Route::get('/', Website::class)->name('home.website');
 

@@ -21,9 +21,8 @@
                     <div><x-textarea wire:model="form.body" type="text" class="w-full" rows="5"/></div>
                     <x-input-error for="form.body" />
                 </div>
-                <div class="space-y-2">
-                    <div><label for="">Upload an image</label></div>
-                    <div><x-wui-input wire:model="form.photo" type="file" class="w-full" rows="5"/></div>
+                <div class="space-y-2 text-info">
+                        <x-wui-input wire:model="form.photo" label="Upload an image" type="file" class="w-full rounded-full cursor-pointer text-info" />
                     <x-input-error for="form.photo" />
                 </div>
                 <div class="space-y-2">

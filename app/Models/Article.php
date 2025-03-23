@@ -28,6 +28,6 @@ class Article extends Model implements HasMedia
         $averageReadingSpeed = 200; // words per minute
         $readTime = ceil($wordCount / $averageReadingSpeed);
 
-        return $readTime;
+        return $readTime; //accessed as [ read_time ] in the view
     }
 }

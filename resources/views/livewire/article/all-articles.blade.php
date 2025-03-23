@@ -14,7 +14,7 @@
                     <div class="">
                         <a href="{{ route('article.create') }}">
                             <div class="bg-white rounded-3xl">
-                               <x-wui-button class="rounded-3xl bg-primary">
+                               <x-wui-button class="rounded-3xl bg-info hover:bg-primary">
                                  Create an article
                                </x-wui-button>
                             </div>
@@ -51,36 +51,7 @@
                 </div>
                 <!-- bottom div -->
                 @foreach($articles as $article)
-                        <div class="my-5">
-                        <div class="space-y-2 p-5 bg-blue-100 bg-opacity-40 rounded-2xl shadow-sm">
-                            <a href="{{ route('article.show', $article->slug)}}">
-                                <div class="h-28 w-full object-contain rounded-t-2xl overflow-hidden border-primary ">
-                                   
-                                        @if ($article->getFirstMediaUrl('articles'))
-                                            <img src="{{ $article->getFirstMediaUrl('articles') }}" alt="{{ $article->title }}" class="w-full h-auto">
-                                        @endif
-                            
-                                </div>
-                                        <livewire:tags />
-                                <div class="text-xl font-extrabold hover:underline">{{ $article->title }}</div>
-                            </a>
-                            <div class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit placeat necessitatibus iusto quae velit adipisci reiciendis earum atque odio quos provident molestiae temporibus eius neque modi cum, sint quis fugiat!</div>
-                            <!-- user infos -->
-                            <div class="flex justify-between items-center">
-                                <!-- left div -->
-                                <div class="flex space-x-2 justify-center items-center text-start mt-4">
-                                    <div class="bg-slate-200 rounded-full size-10">
-                                        <img src="https://gravatar.com/creativelystarfish82125b658b" alt="" srcset="">
-                                    </div>
-                                    <div>
-                                        <div class="text-sm font-bold"> <span class="font-light">Posted by </span>{{ $article->user->name}}</div>
-                                        <div class="text-xs">{{ $article->created_at->diffForHumans() }}</div>
-                                    </div>
-                                </div>
-                                <!-- right div -->
-                                <div class="text-sm">Messages</div>
-                            </div>
-                        </div>
+                    <livewire:article.article-card wire:key="$article->id"  :article="$article" />
                 @endforeach
                 </div>
             </div>

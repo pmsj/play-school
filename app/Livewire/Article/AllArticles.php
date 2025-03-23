@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Article;
 
 use App\Models\Article;
 use Livewire\Component;
@@ -19,6 +19,6 @@ class AllArticles extends Component
     #[Layout('layouts.app')]
     public function render()
     {
-        return view('livewire.all-articles');
+        return view('livewire.article.all-articles');
     }
 }
