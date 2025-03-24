@@ -19,9 +19,9 @@
     </head>
     <body class="font-sans antialiased text-info">
         <div class="min-h-screen bg-gray-100">
-            @guest
+    
                 @livewire('navigation-menu')
-            @endguest
+       
 
             <!-- Page Heading -->
             @if (isset($header))

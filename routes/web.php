@@ -8,6 +8,7 @@ use App\Livewire\Article\ArticleShow;
 use App\Livewire\CreateArticle;
 use App\Livewire\Profile\Security;
 use App\Livewire\Article\AllArticles;
+use App\Livewire\Carousel\CarouselItem;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Profile\DeleteUserForm;
 use App\Livewire\Profile\UpdatePasswordForm;
@@ -34,6 +35,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/articles', AllArticles::class)->name('article.index');
     Route::get('/article/create', Articles::class)->name('article.create');
     Route::get('/articles/{article:slug}', ArticleShow::class)->name('article.show');
+
+    Route::get('/carousel/create', CarouselItem::class)->name('create.carousel');
+
 });
 
 

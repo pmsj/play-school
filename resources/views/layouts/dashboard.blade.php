@@ -36,6 +36,19 @@
                       
                         </x-wui-dropdown>
                     </div>
+                    <!-- carousel -->
+                    <div>
+                        <x-wui-dropdown class="">
+                            <x-slot name="trigger">
+                                <x-wui-button label="Carousel" flat class="bg-slate" icon="photo" position="top-start" class="" />
+                            </x-slot>
+                            <div class="">
+                                <x-responsive-nav-link wire:navigate href="{{ route('create.carousel') }}" :active="request()->routeIs('create.carousel')">
+                                    {{ __('Create Carousel') }}
+                                </x-responsive-nav-link>
+                            </div>
+                        </x-wui-dropdown>
+                    </div>
                 </div>
                 <div class="lg:col-span-9">
                     <div class="mx-auto max-w-3xl">
