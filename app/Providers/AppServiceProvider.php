@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Tag;
 use App\Models\Article;
+use App\Models\ImageCarousel;
 use Carbon\CarbonImmutable;
 use App\Observers\ArticleObserver;
 use Illuminate\Support\Facades\DB;
@@ -39,6 +40,11 @@ class AppServiceProvider extends ServiceProvider
         //mapping App/Models/Article as article
         Relation::enforceMorphMap([
             'article' => Article::class
+        ]);
+
+        //mapping App/Models/Article as article
+        Relation::enforceMorphMap([
+            'carousel' => ImageCarousel::class
         ]);
 
           //mapping App/Models/Tag as tag

@@ -1,31 +1,30 @@
 <div x-data='{  
     activeSlide: 0, 
     slides: {!! json_encode($heroImages->map(fn($image) => [
+        "url" => $image->getFirstMediaUrl("carousel-image") ?: "/fallback.jpg", 
         "title" => $image->title, 
         "subtitle" => $image->subtitle
     ]), JSON_UNESCAPED_SLASHES) !!}
 }'
-    class=" relative w-full h-[70vh] min-h-[400px] md:h-[80vh] md:min-h-[500px] overflow-hidden lg:rounded-lg p-5 my-5">
+    class=" relative w-full h-[70vh] min-h-[400px] md:h-[80vh] md:min-h-[500px] overflow-hidden">
     <!-- Carousel Slides -->
     <template x-for="(slide, index) in slides" :key="index">
         <div x-show="activeSlide === index"
-            class="absolute inset-0 transition-opacity duration-700 ease-in-out"
+            class="absolute inset-0 transition-opacity duration-700 ease-in-out w-full h-full"
             x-transition:enter="opacity-0"
             x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100"
-          >
+            :style="'background-image: url(' + slide.url + '); background-size: cover; background-position: center;  width: 100%; height: 100%; object-fit: cover;'">
 
             <!-- Overlay -->
             <div class="absolute inset-0 bg-black bg-opacity-50"></div>
 
             <!-- Content -->
-            <div class="relative flex flex-col items-center justify-center h-full text-center text-white px-4 md:px-6 mt-20 ">
-                <!-- title -->
-                <h1 x-text="slide.title" class="text-xl md:text-5xl font-bold"></h1>
-                <!-- subtitle -->
-                <p x-text="slide.subtitle" class="mt-2 text-base md:text-xl"></p>
-                <a href="/admissions"
-                    class="mt-4 px-5 py-2 bg-orange-plus text-black font-semibold rounded-full shadow-md hover:bg-yellow-600 hover:text-white transition">
+            <div class="relative flex flex-col items-center justify-center h-full text-center text-white px-4 md:px-6 mt-20 lg:mt-32 ">
+                <h1 x-text="slide.title" class="text-xl lg:text-3xl md:text-5xl font-bold"></h1>
+                <p x-text="slide.subtitle" class="mt-2  text-sm md:text-xl"></p>
+                <a href="#"
+                    class="text-sm lg:text-base mt-4 px-3 py-1.5 lg:mt-4 lg:px-5 lg:py-2 bg-positive text-black font-semibold rounded-full shadow-md hover:ring-4 ring-negative transition">
                     Enroll Now
                 </a>
             </div>
@@ -48,9 +47,8 @@
         <template x-for="(slide, index) in slides" :key="index">
             <button @click="activeSlide = index"
                 class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full"
-                :class="activeSlide === index ? 'bg-yellow-500' : 'bg-gray-500'">
+                :class="activeSlide === index ? 'bg-positive hover:ring-2 ring-negative' : 'bg-gray-400'">
             </button>
         </template>
     </div>
-   
 </div>
