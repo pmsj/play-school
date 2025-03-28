@@ -1,5 +1,5 @@
 <x-slot name="header">
-    <h2 class="font-semibold text-xl leading-tight">
+    <h2 class="font-semibold text-2xl leading-tight">
         All Articles
     </h2>
 </x-slot>
@@ -14,7 +14,7 @@
                     <div class="">
                         <a href="{{ route('article.create') }}">
                             <div class="bg-white rounded-3xl">
-                               <x-wui-button class="rounded-3xl bg-info hover:bg-primary">
+                               <x-wui-button class="rounded-full bg-primary hover:border-white">
                                  Create an article
                                </x-wui-button>
                             </div>

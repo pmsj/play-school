@@ -2,9 +2,10 @@
 
 namespace App\Livewire;
 
+use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use App\Livewire\Forms\CreateComment;
 use Illuminate\Database\Eloquent\Model;
-use Livewire\Component;
 
 class Comments extends Component
 {
@@ -13,6 +14,11 @@ class Comments extends Component
 
     public function createComment()
     {
+        if (!Auth::check()) {
+            $this->form->reset('body');
+            return redirect()->route('login');
+            
+        }
         $this->form->validate();
 
         $comment = $this->model->comments()->make($this->form->only('body'));

@@ -32,13 +32,12 @@ Route::middleware([
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/articles', AllArticles::class)->name('article.index');
     Route::get('/article/create', Articles::class)->name('article.create');
-    Route::get('/articles/{article:slug}', ArticleShow::class)->name('article.show');
-
     Route::get('/carousel/create', CarouselItem::class)->name('create.carousel');
-
 });
+//Article ----> public links
+Route::get('/articles', AllArticles::class)->name('article.index');
+Route::get('/articles/{article:slug}', ArticleShow::class)->name('article.show');
 
 
 

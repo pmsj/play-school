@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use App\CommentableTrait;
 use App\Models\Tag;
 use App\Models\User;
-use App\Models\Comment;
 use App\TaggableTrait;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Comment;
+use App\CommentableTrait;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -19,6 +20,12 @@ class Article extends Model implements HasMedia
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    //function to truncate Article->body
+    public function truncatedBody()
+    {
+        return Str::words($this->body, 30); // Truncate after 30 words
     }
     
     // In your Article model (e.g., Article.php)
