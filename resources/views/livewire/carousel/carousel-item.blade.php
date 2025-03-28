@@ -32,9 +32,9 @@
                     <x-input-error for="form.photo" />
                 </div>
                 <div class="space-y-2">
-                    <x-button type="submit">
+                    <x-wui-button type="submit">
                         Create carousel
-                    </x-button>
+                    </x-wui-button>
                 </div>
             </div>
         </form>

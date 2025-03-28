@@ -1,4 +1,4 @@
-<div>
+<div class="">
     @if (!$deleted)
     <div 
     class="my-6"
@@ -8,9 +8,9 @@
 
     >
     <div class="flex items-center space-x-2">
-        <img src="{{ $comment->user->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="bg-black rounded-full size-8">
-        <div class="font-semibold">{{ $comment->user->name }}</div>
-        <div class="text-sm" x-human-date datetime="{{ $comment->created_at->toDateTimeString() }}" >{{ $comment->created_at->diffForHumans() }}</div>
+        <img src="{{ $comment->user->profile_photo_url }}" alt="photo" class="bg-black rounded-full size-8">
+        <div class="font-semibold text-sm lg:text-base">{{ $comment->user->name }}</span></div>
+        <div class="text-xs md:text-sm" x-human-date datetime="{{ $comment->created_at->toDateTimeString() }}" >{{ $comment->created_at->diffForHumans() }}</div>
     </div>
     @can('edit', $comment)
         <template x-if="editing">
@@ -56,7 +56,7 @@
                     <x-button class="mt-2">
                         Reply
                     </x-button>
-                    <button x-on:click="replying = false" class="text-sm text-gray-500">
+                    <button x-on:click="replying = false" class="text-sm">
                         Cancel
                     </button>
                 </div>

@@ -10,20 +10,20 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        <title>{{ $title ?? 'Nanhe Kadam' }}</title>
         <!-- wireui -->
         <wireui:scripts />
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased text-info">
+    <body class="font-sans antialiased  bg-white text-textColor">
         <x-banner />
 
-        <div class="min-h-screen bg-sky-50 bg-opacity-20">
+        <div class="min-h-screen">
             @livewire('navigation-menu')
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="shadow bg-blue-50">
+                <header class="text textColor">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>

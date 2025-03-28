@@ -25,13 +25,31 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                'background-image': 'linear-gradient(to right top, #f59e0b, #9abe32, #04ca8a, #00c9d6, #38bdf8)'
+              },
             colors: {
-                primary: '#19A7CE', // Main Theme: Vibrant & playful blue, great for buttons and key UI elements)
-                secondary: '#B0DAFF', // (Soft sky blue, good for backgrounds and sections))
-                positive: '#FEFF86 ', // Accent 1 | (Bright yellow, great for highlights, call-to-action buttons, and playful elements)
-                negative: '#FF6B6B', // Accent 2 | Pink | for background FFE700
-                warning: '#FAB12F', 
-                info: '#146C94 ', // (Dark blue, good for headings, text, or navbar elements)
+                primary: '#F59E0B', // 30  
+                secondary: '#38BDF8', // 60
+                secondaryAccent: '#84CC16',
+                base1: '#FFFFFF', // white
+                base2: '#F9FAFB', //  gray-50
+                base3: '#F0F9FF', //  gray-50
+                textColor: '#374151', // gray-700
+                borderColor : '#D1D5DB', // gray-300
+                cardBackground1: '#F3F4F6', // gray-100
+                cardBackground2: '#E5E7EB', // gray-200
+                darkModeBackground: '#111827', // gray-900
+
+                rose: '#FB7185',
+                purple: '#A855F7',
+                
+                // info:  '#F59E0B', // 
+                positive: '#FFE4A7 ',
+        
+                negative: '#F43F5E', 
+                warning: '#FAB12F',
+             
             },
         },
     },

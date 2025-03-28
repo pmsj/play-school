@@ -26,7 +26,7 @@
                     <x-input-error for="form.photo" />
                 </div>
                 <div class="space-y-2">
-                    <x-button>
+                    <x-button class="">
                         create article
                     </x-button>
                 </div>

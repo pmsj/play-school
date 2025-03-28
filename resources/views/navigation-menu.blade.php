@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-info border-b border-gray-100 sticky top-0 backdrop-blur-3xl z-50">
+<nav x-data="{ open: false }" class="bg-transparent shadow border-b border-gray-100 sticky top-0 backdrop-blur-3xl z-50">
     <!-- Primary Navigation Menu -->
     <div x-cloak class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -18,6 +18,11 @@
                     </x-nav-link>
                 </div>
                 @endauth
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link  href="{{ route('home.website') }}" :active="request()->routeIs('home.website')">
+                        {{ __('Home') }}
+                    </x-nav-link>
+                </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link  href="{{ route('article.index') }}" :active="request()->routeIs('article.index')">
                         {{ __('Articles') }}
