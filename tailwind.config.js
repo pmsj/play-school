@@ -39,6 +39,7 @@ export default {
                 borderColor : '#D1D5DB', // gray-300
                 cardBackground1: '#F3F4F6', // gray-100
                 cardBackground2: '#E5E7EB', // gray-200
+                cardBackground3: '#FFFBEB', // amber-50
                 darkModeBackground: '#111827', // gray-900
 
                 rose: '#FB7185',

@@ -3,11 +3,13 @@
 
 use App\Livewire\Website;
 
+use App\Models\Article;
 use App\Livewire\Article\Articles;
 use App\Livewire\Article\ArticleShow;
 use App\Livewire\CreateArticle;
 use App\Livewire\Profile\Security;
 use App\Livewire\Article\AllArticles;
+use App\Livewire\Article\EditArticle;
 use App\Livewire\Carousel\CarouselItem;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Profile\DeleteUserForm;
@@ -32,12 +34,13 @@ Route::middleware([
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/article/create', Articles::class)->name('article.create');
+    Route::get('/article/create', Articles::class)->name('create.article');
+    Route::get('/article/{article:slug}/edit', EditArticle::class)->name('edit.article');
     Route::get('/carousel/create', CarouselItem::class)->name('create.carousel');
 });
 //Article ----> public links
 Route::get('/articles', AllArticles::class)->name('article.index');
-Route::get('/articles/{article:slug}', ArticleShow::class)->name('article.show');
+Route::get('/articles/{article}', ArticleShow::class)->name('article.show');
 
 
 

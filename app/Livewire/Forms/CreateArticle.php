@@ -19,6 +19,6 @@ class CreateArticle extends Form
     #[Rule('required')]
     public $body = '';
 
-    #[Rule('required|image|mimes:jpeg,png,gif,webp|max:1024')]
+    #[Rule('nullable|image|mimes:jpeg,png,gif,webp|max:1024')]
     public $photo = '';
 }

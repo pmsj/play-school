@@ -22,15 +22,8 @@ class Articles extends Component
     {
      
         $this->form->validate();
-
-        $article = new Article([
-            'title' => $this->form->title,
-            'body' => $this->form->body,
-        ]);
-
-        // Save the article first to ensure it has an ID
-        $article->user()->associate(auth()->user());
-        $article->save();
+        
+        $article = request()->user()->articles()->create($this->form->only('title', 'body'));
 
         // Handle the uploaded image
         if ($this->form->photo) {

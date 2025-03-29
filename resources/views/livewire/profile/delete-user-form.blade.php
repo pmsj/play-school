@@ -1,4 +1,4 @@
-<div>
+<div class="bg-cardBackground3 shadow p-5 lg:p-20 rounded-xl m-5 lg:m-0">
 <x-action-section>
     <x-slot name="title">
         {{ __('Delete Account') }}

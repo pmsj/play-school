@@ -1,15 +1,17 @@
 <div class="my-5">
-    <div class="space-y-2 p-5 bg-base3 text-textColor rounded-2xl border-1 shadow">
+    <div class="bg-cardBackground3 rounded-2xl border-1 shadow">
         <a href="{{ route('article.show', $article->slug)}}">
             <div class="h-28 w-full object-contain rounded-t-2xl overflow-hidden  max-w-7xl">
 
                 @if ($article->getFirstMediaUrl('articles'))
-                    <img src="{{ $article->getFirstMediaUrl('articles') }}" alt="{{ $article->title }}" class="w-full h-auto">
+                <img src="{{ $article->getFirstMediaUrl('articles') }}" alt="{{ $article->title }}" class="w-full h-auto">
                 @endif
             </div>
             <livewire:tags />
-            <div class="text-xl font-extrabold hover:underline hover:text-primary">{{ $article->title }}</div>
+            <div class="text-xl font-extrabold hover:underline hover:text-primary ml-5">{{ $article->title }}</div>
         </a>
+  
+    <div class="space-y-2 p-5  text-textColor">
         <div class="text-textColor">{{ $article->truncatedBody() }}</div>
         <!-- user infos -->
         <div class="flex justify-between items-center">
@@ -26,13 +28,14 @@
             <!-- right div ----Edit articles-->
             <div class="text-sm flex">
                 <div>
-                    <x-wui-link>
-                        <x-wui-mini-button wire:click="$dispatch('openModal', { component: 'livewire.edit-article'})" rounded icon="pencil-square" flat gray interaction="negative" />
+                    <x-wui-link href="{{ route('edit.article', $article->slug) }}" >
+                        <x-wui-mini-button rounded icon="pencil-square" flat gray interaction="negative" />
                     </x-wui-link>
                 </div>
                 <div>
                     <x-wui-mini-button rounded icon="trash" flat red interaction="negative" />
                 </div>
             </div>
+        </div>
         </div>
     </div>

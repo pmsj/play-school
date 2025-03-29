@@ -4,31 +4,26 @@
     </h2>
 </x-slot>
 
- <div class="mx-auto max-w-3xl mt-10 bg-white rounded-2xl">
+ <div class="mx-auto max-w-3xl my-10 rounded-2xl">
     @if (session()->has('message'))
         <x-wui-alert title="{{ session('message') }} " positive squared class="bg-green-200"/>
     @endif
-    <div class="shadow p-5 rounded">
+    <div class="border-4 border-borderColor p-5 lg:p-20 rounded-xl m-5 lg:m-0">
         <form wire:submit="createArticle">
-           <div class="space-y-4">
-                <div class="space-y-2">
-                    <div><label for=""> Title</label></div>
-                    <div><x-input wire:model="form.title" type="text" class="w-full" /></div>
-                    <x-input-error for="form.title" />
+           <div class="space-y-4 md:space-y-8">
+                <div>
+                    <div><x-wui-input wire:model="form.title" type="text" class="w-full text-rose" label="Title"/></div>
                 </div>
-                <div class="space-y-2">
-                    <div><label for="">Body</label></div>
-                    <div><x-textarea wire:model="form.body" type="text" class="w-full" rows="5"/></div>
-                    <x-input-error for="form.body" />
+                <div>
+                    <div><x-wui-textarea wire:model="form.body" type="text" class="w-full text-rose" rows="5" label="Body"/></div>
                 </div>
-                <div class="space-y-2 text-info">
-                        <x-wui-input wire:model="form.photo" label="Upload an image" type="file" class="w-full rounded-full cursor-pointer text-info" />
-                    <x-input-error for="form.photo" />
+                <div>
+                        <x-wui-input wire:model="form.photo" label="Upload an image" type="file" class="w-full rounded-full cursor-pointer text-rose" />
                 </div>
-                <div class="space-y-2">
-                    <x-button class="">
+                <div>
+                    <x-wui-button class="bg-primary text-textColor" type="submit">
                         create article
-                    </x-button>
+                    </x-wui-button>
                 </div>
            </div>
         </form>

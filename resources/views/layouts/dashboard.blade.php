@@ -6,7 +6,7 @@
         </x-slot>
         <div class="my-10 mx-auto max-w-7xl p-5">
             <div class="grid lg:grid-cols-12">
-                <div class="lg:col-span-3 rounded-md">
+                <div class="lg:col-span-3 rounded-lg bg-white">
                     <!-- drop down links -->
                     <div>
                         <x-wui-dropdown class="">

@@ -12,7 +12,7 @@
             <div class="justify-start lg:z-10">
                 <div class="lg:cols-span-3 flex flex-col space-y-2  mr-16 text-center lg:sticky top-32 h-auto">
                     <div class="">
-                        <a href="{{ route('article.create') }}">
+                        <a href="{{ route('create.article') }}">
                             <div class="bg-white rounded-3xl">
                                <x-wui-button class="rounded-full bg-primary hover:border-white">
                                  Create an article
