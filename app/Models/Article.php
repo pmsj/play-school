@@ -27,6 +27,11 @@ class Article extends Model implements HasMedia
     {
         return Str::words($this->body, 30); // Truncate after 30 words
     }
+
+    public function truncatedTitle()
+    {
+        return Str::words($this->title, 6); // Truncate after 30 words
+    }
     
     // In your Article model (e.g., Article.php)
     public function getReadTimeAttribute()

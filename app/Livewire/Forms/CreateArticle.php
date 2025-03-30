@@ -13,10 +13,10 @@ class CreateArticle extends Form
 
     use WithFileUploads;
 
-    #[Rule('required')]
+    #[Rule('required', message: 'Please enter a title')]
     public $title;
 
-    #[Rule('required')]
+    #[Rule('required', message: 'Please fill in the article body')]
     public $body = '';
 
     #[Rule('nullable|image|mimes:jpeg,png,gif,webp|max:1024')]

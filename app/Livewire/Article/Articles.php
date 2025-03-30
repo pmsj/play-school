@@ -38,6 +38,11 @@ class Articles extends Component
         session()->flash('message', 'Article created successfully.');
     }
 
+    
+    public function cancel()
+    {
+        return $this->redirect(route('index.article'));
+    }
 
     #[Layout('layouts.app')]
     public function render()

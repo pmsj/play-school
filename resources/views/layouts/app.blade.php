@@ -23,7 +23,7 @@
             @livewire('navigation-menu')
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="text textColor">
+                <header class="text textColor bg-cardBackground3 p-2 lg:p-0">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Profile\DeleteUserForm;
 use App\Livewire\Profile\UpdatePasswordForm;
 use App\Livewire\Profile\UpdateProfileInformationForm;
+use App\Livewire\UserArticles;
 
 Route::get('/', Website::class)->name('home.website');
 
@@ -37,10 +38,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/article/create', Articles::class)->name('create.article');
     Route::get('/article/{article:slug}/edit', EditArticle::class)->name('edit.article');
     Route::get('/carousel/create', CarouselItem::class)->name('create.carousel');
+    Route::get('/user/{user}/articles', UserArticles::class)->name('user.articles');
 });
 //Article ----> public links
-Route::get('/articles', AllArticles::class)->name('article.index');
-Route::get('/articles/{article}', ArticleShow::class)->name('article.show');
+Route::get('/articles', AllArticles::class)->name('index.article');
+Route::get('/articles/{article:slug}', ArticleShow::class)->name('show.article');
 
 
 
