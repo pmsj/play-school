@@ -1,4 +1,4 @@
-<div>
+<div class="bg-base1 shadow p-5 lg:p-20 rounded-xl m-5 lg:m-0">
     <x-form-section submit="updatePassword">
         <x-slot name="title">
             {{ __('Update Password') }}

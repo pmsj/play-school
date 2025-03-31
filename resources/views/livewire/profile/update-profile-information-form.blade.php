@@ -1,4 +1,4 @@
-<div class="text-info">
+<div class="bg-base1 shadow p-5 lg:p-20 rounded-xl m-5 lg:m-0">
 <x-form-section submit="updateProfileInformation">
     <x-slot name="title">
         {{ __('Profile Information') }}

@@ -6,7 +6,7 @@
                 <x-textarea wire:model="form.body" placeholder="post a comment" class="w-full" rows="4" />
                 <x-input-error for="form.body" />
             </div>
-            <x-button class="mt-2 bg-primary">
+            <x-button class="mt-2 bg-secondary">
                 Post a comment
             </x-button>
         </form>

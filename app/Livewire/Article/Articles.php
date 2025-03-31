@@ -18,19 +18,13 @@ class Articles extends Component
     
     public CreateArticle $form;
 
+
     public function createArticle()
     {
      
         $this->form->validate();
-
-        $article = new Article([
-            'title' => $this->form->title,
-            'body' => $this->form->body,
-        ]);
-
-        // Save the article first to ensure it has an ID
-        $article->user()->associate(auth()->user());
-        $article->save();
+        
+        $article = request()->user()->articles()->create($this->form->only('title', 'body'));
 
         // Handle the uploaded image
         if ($this->form->photo) {
@@ -43,8 +37,15 @@ class Articles extends Component
 
         // Optionally, you can add a session flash message or event
         session()->flash('message', 'Article created successfully.');
+
+        // $this->redirect(route('index.article'));
     }
 
+    
+    public function cancel()
+    {
+        return $this->redirect(route('index.article'));
+    }
 
     #[Layout('layouts.app')]
     public function render()

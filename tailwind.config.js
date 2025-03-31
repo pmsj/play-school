@@ -30,15 +30,17 @@ export default {
               },
             colors: {
                 primary: '#F59E0B', // 30  
-                secondary: '#38BDF8', // 60
+                secondary: '#430000', // 60
                 secondaryAccent: '#84CC16',
                 base1: '#FFFFFF', // white
                 base2: '#F9FAFB', //  gray-50
                 base3: '#F0F9FF', //  gray-50
+  
                 textColor: '#374151', // gray-700
                 borderColor : '#D1D5DB', // gray-300
                 cardBackground1: '#F3F4F6', // gray-100
                 cardBackground2: '#E5E7EB', // gray-200
+                cardBackground3: '#FFFBEB', // amber-50
                 darkModeBackground: '#111827', // gray-900
 
                 rose: '#FB7185',

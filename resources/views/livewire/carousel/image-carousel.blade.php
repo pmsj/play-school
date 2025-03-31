@@ -21,7 +21,7 @@
             :style="'background-image: url(' + slide.url + '); background-size: cover; background-position: center;  width: 100%; height: 100%; object-fit: cover; background-repeat: no-repeat;'">
 
             <!-- Overlay -->
-            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-60"></div>
 
             <!-- Content -->
             <div class="relative flex flex-col items-center justify-center h-full text-center text-white px-4 md:px-6 mt-20 lg:mt-20 ">
@@ -37,12 +37,12 @@
 
     <!-- Navigation Buttons -->
     <button @click="activeSlide = (activeSlide === 0) ? slides.length - 1 : activeSlide - 1"
-        class="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-opacity-50 text-primary p-2 md:p-3 rounded-full shadow hover:bg-opacity-75 transition">
+        class="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-opacity-50 text-primary p-2 md:p-3 rounded-full shadow hover:bg-primary hover:text-white hover:bg-opacity-75 transition">
         ❮
     </button>
 
     <button @click="activeSlide = (activeSlide === slides.length - 1) ? 0 : activeSlide + 1"
-        class="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2  bg-opacity-50 text-primary p-2 md:p-3 rounded-full shadow hover:bg-opacity-75 transition">
+        class="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2  bg-opacity-50 text-primary p-2 md:p-3 rounded-full shadow hover:bg-primary hover:text-white hover:bg-opacity-75 transition">
         ❯
     </button>
 
@@ -51,7 +51,7 @@
         <template x-for="(slide, index) in slides" :key="index">
             <button @click="activeSlide = index"
                 class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full"
-                :class="activeSlide === index ? 'bg-positive hover:ring-2 ring-negative' : 'bg-gray-400'">
+                :class="activeSlide === index ? 'bg-primary hover:ring-2 ring-negative' : 'bg-gray-400'">
             </button>
         </template>
     </div>

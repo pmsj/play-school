@@ -1,10 +1,10 @@
 <x-slot name="header">
     <div class="flex space-x-5 lg:space-x-10 items-center">
-       <a wire:navigate href="{{ route('article.index') }}" class="font-bold scale-75 hover:scale-x-125  duration-150 ease-in">
-        <x-wui-icon name="chevron-double-left" class="w-6 h-6 rounded-full text-primary"  outline />
+       <a wire:navigate href="{{ route('index.article') }}" class="">
+            <x-wui-mini-button primary rounded icon="chevron-double-left" class="bg-secondary font-bold hover:shadow-lg"/>
        </a>
         <h2 class="font-semibold text-xl leading-tight">
-            {{ $article->title }}
+            {{ $article->truncatedTitle() }}
         </h2>
     </div>
 </x-slot>
@@ -14,7 +14,7 @@
             <div class="mx-auto max-w-7xl grid lg:grid-cols-[1fr_2fr] gap-2 p-5 relative space-x-10">
                 <!-- top most div on left -->
                 <div class="justify-start">
-                    <div class="lg:cols-span-3 flex flex-col space-y-2  mr-16 lg:sticky top-16">
+                    <div class="lg:cols-span-3 flex flex-col space-y-2  mr-16 lg:sticky top-32">
                         <div class="">
                             <a href="#">
                                 <div class="border-b-2">
