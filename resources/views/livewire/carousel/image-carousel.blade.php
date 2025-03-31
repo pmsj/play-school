@@ -51,7 +51,7 @@
         <template x-for="(slide, index) in slides" :key="index">
             <button @click="activeSlide = index"
                 class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full"
-                :class="activeSlide === index ? 'bg-positive hover:ring-2 ring-negative' : 'bg-gray-400'">
+                :class="activeSlide === index ? 'bg-primary hover:ring-2 ring-negative' : 'bg-gray-400'">
             </button>
         </template>
     </div>

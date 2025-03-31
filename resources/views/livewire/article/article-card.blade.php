@@ -8,6 +8,7 @@
                 <img src="{{ $article->getFirstMediaUrl('articles') }}" alt="{{ $article->title }}" class="w-full h-auto">
                 @endif
             </div>
+            <!-- all tags -->
             <livewire:tags />
             <div class="text-xl font-extrabold hover:underline hover:text-primary ml-5">{{ $article->title }}</div>
         </a>

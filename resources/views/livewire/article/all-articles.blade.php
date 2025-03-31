@@ -5,7 +5,7 @@
 </x-slot>
 
 <div class="flex flex-col py-12 space-y-6">
-        <div class="my-4">
+        <div class="my-5 mx-auto max-w-5xl">
             @if (session()->has('message'))
             <x-wui-alert title="{{ session('message') }} " positive squared class="bg-green-200 rounded-2xl" />
             @endif

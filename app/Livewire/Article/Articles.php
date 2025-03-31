@@ -18,6 +18,7 @@ class Articles extends Component
     
     public CreateArticle $form;
 
+
     public function createArticle()
     {
      
@@ -36,6 +37,8 @@ class Articles extends Component
 
         // Optionally, you can add a session flash message or event
         session()->flash('message', 'Article created successfully.');
+
+        // $this->redirect(route('index.article'));
     }
 
     

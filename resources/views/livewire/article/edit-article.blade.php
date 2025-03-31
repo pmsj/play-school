@@ -10,9 +10,9 @@
 </x-slot>
 <div class="mx-auto max-w-4xl my-10 rounded-2xl p-3 lg:p-0">
     <x-wui-card title="Edit Article" rounded="xl" padding="px-10 py-5">
-        <x-slot name="title" class="text-textColor text-lg font-extrabold py-2 flex items-center">
-        <x-wui-icon name="book-open" class="w-6 h-6 mx-3 text-primary" />
-            Edit Article 
+        <x-slot name="title" class="text-textColor text-lg font-extrabold py-5 flex items-center bg-cardBackground3 w-full rounded-t-md">
+            <x-wui-icon name="book-open" class="w-6 h-6 mx-3 text-primary" />
+                Edit Article 
         </x-slot>
         <div class="my-4">
             @if (session()->has('message'))
