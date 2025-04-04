@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\Article;
 use App\Models\ImageCarousel;
 use Carbon\CarbonImmutable;
+use Spatie\Permission\Models\Role;
 use App\Observers\ArticleObserver;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Date;
@@ -52,5 +53,9 @@ class AppServiceProvider extends ServiceProvider
             'tag' => Tag::class
         ]);
 
+         //mapping spatie-Role modal
+         Relation::enforceMorphMap([
+            'role' => Role::class
+        ]);
     }
 }

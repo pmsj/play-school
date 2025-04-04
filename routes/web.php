@@ -2,7 +2,6 @@
 
 
 use App\Livewire\Website;
-
 use App\Models\Article;
 use App\Livewire\Article\Articles;
 use App\Livewire\Article\ArticleShow;
@@ -10,6 +9,9 @@ use App\Livewire\CreateArticle;
 use App\Livewire\Profile\Security;
 use App\Livewire\Article\AllArticles;
 use App\Livewire\Article\EditArticle;
+use App\Livewire\Authorization\Role\AllRoles;
+use App\Livewire\Authorization\Role\CreateRole;
+use App\Livewire\Authorization\Role\ManageRole;
 use App\Livewire\Carousel\CarouselItem;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Profile\DeleteUserForm;
@@ -39,10 +41,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/article/{article:slug}/edit', EditArticle::class)->name('edit.article');
     Route::get('/carousel/create', CarouselItem::class)->name('create.carousel');
     Route::get('/user/{user}/articles', UserArticles::class)->name('user.articles');
+
+    //Role
+    Route::get('/role/create', CreateRole::class)->name('create.role');
+    Route::get('/manage-roles', ManageRole::class)->name('index.role');
 });
 //Article ----> public links
 Route::get('/articles', AllArticles::class)->name('index.article');
-Route::get('/articles/{article:slug}', ArticleShow::class)->name('show.article');
+Route::get('/article/{article:slug}', ArticleShow::class)->name('show.article');
 
 
 
