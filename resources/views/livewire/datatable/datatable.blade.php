@@ -1,4 +1,4 @@
-<div class="mt-5 lg:mt-0 bg-base1 p-5">
+<div class="lg:mt-0 bg-base1 p-5 rounded-lg">
     <div class="flex justify-between items-center mb-4">
         <div>Search</div>
         <div class="flex">
@@ -22,7 +22,7 @@
                     <div class="">
                         <x-wui-dropdown>
                             <x-slot name="trigger">
-                                <x-wui-button label="With checked ({{ count($checked)}})" class="bg-primary" sm/>
+                                <x-wui-button type="button" label="With checked ({{ count($checked) }})" class="bg-primary" sm/>
                             </x-slot>
                         
                             <x-wui-dropdown.item wire:click="deleteChecked" label="Delete" />
@@ -36,7 +36,7 @@
     <!-- datatable -->
     <div class="overflow-x-auto sm:rounded-lg  bg-base1">
         <table class="table-auto w-full">
-            <thead class=" w-full bg-base3 p-5">
+            <thead class=" w-full bg-base3">
                 <tr class="">
                     <th scope="col" class="ml-2">
                     </th>
@@ -51,7 +51,7 @@
                 @foreach($this->records() as $record)
                 <tr class="@if($this->isChecked($record)) bg-cardBackground3 @endif border-b">
                     <td class="">
-                        <x-wui-checkbox value="{{ $record->id }}" secondary id="size-sm" wire:model="checked" sm  type="checkbox"/>
+                        <x-wui-checkbox type="checkbox" value="{{ $record->id }}" wire:model="checked"   />
                     </td>
                     @foreach ($columns as $column)
                         <td class="px-6 py-3">{{ $record->{$column} }}</td>

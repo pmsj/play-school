@@ -20,8 +20,8 @@ class Datatable extends Component
     {
         $this->model = $model;
         $this->exclude = explode(',', $exclude); // comma seerated value for exclusion of dabasetable columns
-        $this->paginate = $paginate; // custom pagination
         $this->columns = $this->columns(); //dynamically gttting columns from database table 
+        $this->paginate = $paginate; // custom pagination
     }
 
     public function updatingPaginate($value)
@@ -53,7 +53,6 @@ class Datatable extends Component
     public function isChecked($record)
     {
         return in_array($record->id, $this->checked);
-        $this->refresh;
     }
     public function deleteChecked()
     {
