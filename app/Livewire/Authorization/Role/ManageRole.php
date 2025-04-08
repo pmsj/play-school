@@ -7,7 +7,7 @@ use Livewire\Attributes\Layout;
 
 class ManageRole extends Component
 {
-    
+
     #[Layout('layouts.dashboard')]
     public function render()
     {
