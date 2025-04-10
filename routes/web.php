@@ -9,6 +9,7 @@ use App\Livewire\CreateArticle;
 use App\Livewire\Profile\Security;
 use App\Livewire\Article\AllArticles;
 use App\Livewire\Article\EditArticle;
+use App\Livewire\Authorization\Permission\ManagePermission;
 use App\Livewire\Authorization\Role\AllRoles;
 use App\Livewire\Authorization\Role\CreateRole;
 use App\Livewire\Authorization\Role\ManageRole;
@@ -48,6 +49,9 @@ Route::middleware(['auth'])->group(function () {
     //Role
     Route::get('/role/create', CreateRole::class)->name('create.role');
     Route::get('/manage-roles', ManageRole::class)->name('index.role');
+
+   // Permission
+   Route::get('/manage-permissions', ManagePermission::class)->name('index.permission');
 });
 //Article ----> public links
 Route::get('/articles', AllArticles::class)->name('index.article');

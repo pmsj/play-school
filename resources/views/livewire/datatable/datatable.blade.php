@@ -1,6 +1,9 @@
 <div class="lg:mt-0 bg-base1 p-5 rounded-lg">
     <div class="flex justify-between items-center mb-4">
-        <div>Search</div>
+        <div class="w-full">
+            <x-wui-input type="search"  right-icon="magnifying-glass-circle" placeholder="Search" class="w-96" wire:model="query"/>
+        </div>
+        <p class="text-salte-900">{{ $query }}</p>
         <div class="flex">
              <!-- per page record -->
             <!-- <div class="">
@@ -19,12 +22,11 @@
             </div> -->
             <div>
                 @if(count($checked))
-                    <div class="">
+                    <div class="ml-4">
                         <x-wui-dropdown>
-                            <x-slot name="trigger">
-                                <x-wui-button type="button" label="With checked ({{ count($checked) }})" class="bg-primary" sm/>
+                            <x-slot name="trigger" class="w-full">
+                                <x-wui-button xs label="Checked ({{ count($checked) }})" right-icon="chevron-double-down" outline  focus:solid.gray class="bg-secondary text-white" />
                             </x-slot>
-                        
                             <x-wui-dropdown.item wire:click="deleteChecked" label="Delete" />
                             <x-wui-dropdown.item separator label="Live Chat" />
                         </x-wui-dropdown>
@@ -61,8 +63,5 @@
             </tbody>
         </table>
     </div>
-
-
     <div class="p-5 ">{{ $this->records()->links() }}</div>
-
 </div>

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Date;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Spatie\Permission\Models\Permission;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -56,6 +57,11 @@ class AppServiceProvider extends ServiceProvider
          //mapping spatie-Role modal
          Relation::enforceMorphMap([
             'role' => Role::class
+        ]);
+
+          //mapping spatie-Permision modal
+          Relation::enforceMorphMap([
+            'permission' => Permission::class
         ]);
     }
 }

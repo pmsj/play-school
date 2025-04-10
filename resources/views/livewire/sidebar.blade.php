@@ -1,6 +1,6 @@
-<div>
+<div class="overflow-auto bg-white rounded-lg py-4">
     <!-- Profile Settings -->
-    <div class="">
+    <div class="hover:text-primary">
         <x-wui-dropdown class="">
             <x-slot name="trigger">
                 <x-wui-button label="Account Settings" flat class="bg-slate" icon="user-circle" position="top-start" class="" />
@@ -29,7 +29,7 @@
         </x-wui-dropdown>
     </div>
     <!-- Articles -->
-    <div>
+    <div class="hover:text-primary">
         <x-wui-dropdown class="">
             <x-slot name="trigger">
                 <x-wui-button label="Article" flat class="bg-slate" icon="photo" position="top-start" class="" />
@@ -47,7 +47,7 @@
         </x-wui-dropdown>
     </div>
     <!-- carousel -->
-    <div>
+    <div class="hover:text-primary">
         <x-wui-dropdown class="">
             <x-slot name="trigger">
                 <x-wui-button label="Carousel" flat class="bg-slate" icon="photo" position="top-start" class="" />
@@ -59,11 +59,11 @@
             </div>
         </x-wui-dropdown>
     </div>
-    <!-- Role -->
-    <div>
+    <!-- Users -->
+    <div class="hover:text-primary">
         <x-wui-dropdown class="">
             <x-slot name="trigger">
-                <x-wui-button label="Manage Users" flat class="bg-slate" icon="user-plus" position="top-start" class="" />
+                <x-wui-button label="Manage Users" flat class="bg-slate" icon="user-circle" position="top-start" class="" />
             </x-slot>
             <div class="">
                 <x-responsive-nav-link wire:navigate href="{{ route('index.user') }}" :active="request()->routeIs('index.user')">
@@ -73,7 +73,7 @@
         </x-wui-dropdown>
     </div>
     <!-- Role -->
-    <div>
+    <div class="hover:text-primary">
         <x-wui-dropdown class="">
             <x-slot name="trigger">
                 <x-wui-button label="Manage Roles" flat class="bg-slate" icon="user-plus" position="top-start" class="" />
@@ -81,6 +81,19 @@
             <div class="">
                 <x-responsive-nav-link wire:navigate href="{{ route('index.role') }}" :active="request()->routeIs('index.role')">
                     {{ __('Manage Role') }}
+                </x-responsive-nav-link>
+            </div>
+        </x-wui-dropdown>
+    </div>
+    <!-- Permission -->
+    <div class="hover:text-primary">
+        <x-wui-dropdown>
+            <x-slot name="trigger">
+                <x-wui-button label="Manage Permission" flat class="bg-slate" icon="user-plus" position="top-start" class="" />
+            </x-slot>
+            <div class="">
+                <x-responsive-nav-link wire:navigate href="{{ route('index.permission') }}" :active="request()->routeIs('index.permission')">
+                    {{ __('Manage Permission') }}
                 </x-responsive-nav-link>
             </div>
         </x-wui-dropdown>

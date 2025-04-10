@@ -15,6 +15,7 @@ class Datatable extends Component
     public $exclude;
     public $paginate;
     public $checked = [];
+    public $query;
 
     public function mount($model, $exclude = '', $paginate = 10)
     {
@@ -43,7 +44,7 @@ class Datatable extends Component
 
     public function builder()
     {
-        return $this->model::query();
+        return new $this->model;
     }
 
     protected function checkedRecords()
@@ -52,7 +53,9 @@ class Datatable extends Component
     }
     public function isChecked($record)
     {
+        
         return in_array($record->id, $this->checked);
+ 
     }
     public function deleteChecked()
     {
@@ -62,7 +65,14 @@ class Datatable extends Component
 
     public function records()
     {
-        return $this->builder()->paginate($this->paginate);
+        $builder = $this->builder();
+
+        if($this->query)
+        {
+            $builder = $builder->search($this->query);
+        }
+
+        return $builder->paginate($this->paginate);
     }
    
     public function render()
