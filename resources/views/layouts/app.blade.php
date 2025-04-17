@@ -13,7 +13,6 @@
         <title>{{ $title ?? 'Nanhe Kadam' }}</title>
         <!-- wireui -->
         <wireui:scripts />
-
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased  bg-base2 text-textColor">

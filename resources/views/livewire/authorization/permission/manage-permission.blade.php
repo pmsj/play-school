@@ -1,7 +1,7 @@
 <div class="">
    <div class="mb-5">
          @if (session()->has('message'))
-               <x-wui-alert title="{{ session('message') }} " positive squared class="bg-green-200" />
+               <x-wui-alert title="{{ session('message') }} " positive squared class="bg-green-200 rounded-lg" />
          @endif
    </div>
    <div class="flex justify-between my-2 lg:my-2">
@@ -11,7 +11,7 @@
       <div></div>
    </div>
    <!-- in exclude prop, always pass comma seperated column names and there should not be any gap in between column names -->
-   <livewire:datatable.datatable model="Spatie\Permission\Models\Permission" exclude="created_at,updated_at" paginate="5" /> 
+   <livewire:datatable.datatable model="App\Models\Permission" exclude="created_at,updated_at" paginate="5" /> 
    <livewire:authorization.permission.create-permission />
 </div>
 

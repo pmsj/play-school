@@ -3,9 +3,10 @@
 namespace App\Livewire\Authorization\Permission;
 
 use Livewire\Component;
+use App\Models\Permission;
 use Livewire\Attributes\On;
 use App\Livewire\Forms\PermissionForm;
-use Spatie\Permission\Models\Permission;
+
 
 class CreatePermission extends Component
 {
@@ -22,7 +23,7 @@ class CreatePermission extends Component
     {
         $this->form->validate();
       
-        $permission = Permission::make($this->form->only('name')); 
+        $permission = Permission::make($this->form->only('name', 'description')); 
         $permission->saveOrFail();
 
           // Reset the form

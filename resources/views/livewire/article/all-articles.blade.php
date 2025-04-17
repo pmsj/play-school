@@ -17,6 +17,7 @@
             <div class="justify-start lg:z-10">
                 <div class="lg:cols-span-3 flex flex-col space-y-2  mr-16 text-center lg:sticky top-32 h-auto">
                     <div class="">
+                        @can('create', \App\Models\Article::class)
                         <a href="{{ route('create.article') }}">
                             <div class="rounded-3xl">
                                <x-wui-button class="rounded-full bg-secondary hover:border-white">
@@ -24,6 +25,7 @@
                                </x-wui-button>
                             </div>
                         </a>
+                        @endcan
                     </div>
                     <div class="">
                         <div class="rounded-3xl px-4 py-2">

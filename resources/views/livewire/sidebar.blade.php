@@ -28,6 +28,7 @@
 
         </x-wui-dropdown>
     </div>
+
     <!-- Articles -->
     <div class="hover:text-primary">
         <x-wui-dropdown class="">
@@ -98,4 +99,41 @@
             </div>
         </x-wui-dropdown>
     </div>
+     <!-- Manage Group Permissions -->
+     <div class="hover:text-primary">
+        <x-wui-dropdown>
+            <x-slot name="trigger">
+                <x-wui-button label="Assign group permissions" flat class="bg-slate" icon="user-plus" position="top-start" class="" />
+            </x-slot>
+            <div class="">
+                <x-responsive-nav-link wire:navigate href="{{ route('assign.group-permissions') }}" :active="request()->routeIs('assign.group-permissions')">
+                    {{ __('Assign group permission') }}
+                </x-responsive-nav-link>
+            </div>
+            <div class="">
+                <x-responsive-nav-link wire:navigate href="{{ route('manage.group-permissions') }}" :active="request()->routeIs('manage.group-permissions')">
+                    {{ __('Manage group permission') }}
+                </x-responsive-nav-link>
+            </div>
+        </x-wui-dropdown>
+    </div>
+     <!-- Manage user Groups  -->
+     <div class="hover:text-primary">
+        <x-wui-dropdown>
+            <x-slot name="trigger">
+                <x-wui-button label="Manage user groups" flat class="bg-slate" icon="user-plus" position="top-start" class="" />
+            </x-slot>
+            <div class="">
+                <x-responsive-nav-link wire:navigate href="{{ route('assign.user-groups') }}" :active="request()->routeIs('assign.user-groups')">
+                    {{ __('Assign user group') }}
+                </x-responsive-nav-link>
+            </div>
+            <div class="">
+                <x-responsive-nav-link wire:navigate href="{{ route('manage.user-groups') }}" :active="request()->routeIs('manage.user-groups')">
+                    {{ __('Manage user groups') }}
+                </x-responsive-nav-link>
+            </div>
+        </x-wui-dropdown>
+    </div>
+
 </div>

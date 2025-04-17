@@ -2,11 +2,12 @@
 
 namespace App\Livewire\Authorization\Role;
 
+use App\Models\Role;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Layout;
 use App\Livewire\Forms\RoleForm;
-use Spatie\Permission\Models\Role;
+
 
 class CreateRole extends Component
 {
@@ -23,7 +24,7 @@ class CreateRole extends Component
     public function createRole()
     {
         $this->form->validate();
-        Role::create($this->form->only('name'));
+        Role::create($this->form->only('name','description'));
 
           // Reset the form
           $this->reset();

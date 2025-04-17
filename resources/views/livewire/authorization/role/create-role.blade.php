@@ -12,9 +12,12 @@
                 <div>
                     <div><x-wui-input wire:model="form.name" type="text" class="w-full text-rose" label="Role Name"  /></div>
                 </div>
+                <div>
+                    <div><x-wui-input wire:model="form.description" type="text" class="w-full text-rose" label="Role Description"  /></div>
+                </div>
             </div>
             <x-slot name="footer" class="flex items-center justify-between">
-                <x-wui-button wire:click="createRole" type="submit" label="Create article" class="bg-secondary" />
+                <x-wui-button wire:click="createRole" type="submit" label="Create Role" class="bg-secondary" />
                 <x-wui-button wire:click="cancle" type="submit" outline secondary label="Cancle" class="text-black" />
             </x-slot>
         </form>

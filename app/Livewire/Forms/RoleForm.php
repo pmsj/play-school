@@ -10,4 +10,7 @@ class RoleForm extends Form
 {
     #[Rule('required', message: 'Please enter a Role name')]
     public $name;
+
+    #[Rule('required', message: 'Add Description for what the role does')]
+    public $description;
 }

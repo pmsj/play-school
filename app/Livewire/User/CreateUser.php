@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Livewire\Forms\UserForm;
 
+
 class CreateUser extends Component
 {
     public UserForm $form;
@@ -18,20 +19,23 @@ class CreateUser extends Component
         $this->showModal = true;
     }
 
-    public function createNewUser()
+    public function createUser()
     {
-        $this->form->validate();
-      
-        $permission = User::make($this->form->only('name')); 
-        $permission->saveOrFail();
 
-          // Reset the form
-          $this->reset();
+        $this->form->validate();
+
+       User::create([
+            'name' => $this->form->name,
+            'email' => $this->form->email,
+            'password' => $this->form->password,
+        ]);
 
           // Optionally, you can add a session flash message or event
           session()->flash('message', 'User created successfully.');
 
-        $this->redirect(route('index.permission'));
+          $this->form->reset();
+
+        $this->redirect(route('index.user'));
     }
 
     // close model with cancel button

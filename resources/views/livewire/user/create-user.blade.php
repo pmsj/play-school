@@ -14,18 +14,18 @@
                         <x-wui-input wire:model="form.name" type="text" class="w-full text-rose" label="Name"  />
                     </div>
                     <div>
-                        <x-wui-input wire:model="form.email" type="text" class="w-full text-rose" label="Email"  />
+                        <x-wui-input wire:model="form.email" type="email" email="w-full text-rose" label="Email"  />
                     </div>
                     <div>
-                        <x-wui-input wire:model="form.password" type="text" class="w-full text-rose" label="Password"  />
+                        <x-wui-input  wire:model="form.password" type="password" class="w-full text-rose" label="Password"  />
                     </div>
                     <div>
-                        <x-wui-input wire:model="form.password" type="text" class="w-full text-rose" label="Confirm Password"  />
+                        <x-wui-input wire:model="form.password_confirmation" type="password" class="w-full text-rose" label="Confirm Password"  />
                     </div>
                 </div>
             </div>
             <x-slot name="footer" class="flex items-center justify-between">
-                <x-wui-button wire:click="createNewUser" type="submit" label="Create new user" class="bg-secondary" />
+                <x-wui-button wire:click="createUser" type="submit" label="Create new user" class="bg-secondary" />
                 <x-wui-button wire:click="cancel" type="submit" outline secondary label="Cancel" class="text-black" />
             </x-slot>
         </form>

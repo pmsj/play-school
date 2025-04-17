@@ -8,13 +8,15 @@ use Livewire\Attributes\Validate;
 
 class UserForm extends Form
 {
-    #[Rule('required', message: 'Please enter a Role name')]
-    public $name;
+    #[Rule('required|string|max:255')]
+    public $name = '';
 
-    #[Rule('required', message: 'Please enter a Role name')]
-    public $email;
+    #[Rule('required|email|unique:users,email')]
+    public $email = '';
 
-    #[Rule('required')]
-    public $password;
+    #[Rule('required|min:8|confirmed')]
+    public $password = '';
+
+    public $password_confirmation = '';
 
 }
