@@ -8,7 +8,7 @@
             
             @endif
     </div>
-    <x-wui-button  href="{{ route('manage.user-groups')}}" outline  label="White" icon="arrow-left" primary label="Go back" class="font-bold my-2 text-secondary bg-cardBackground3" xs/>
+    <x-wui-button  href="{{ route('manage.user-groups')}}" outline  label="White" icon="arrow-left" primary label="Go back" class="font-bold my-2 text-primary bg-cardBackground3" xs/>
     <x-wui-card >
         <x-slot name="header" class="text-md font-extrabold  text-secondary bg-cardBackground3 w-full p-4" rounded="lg">
             Edit User's Permission Group
@@ -48,7 +48,7 @@
             </div>
             <x-slot name="footer" class="flex justify-end gap-x-4">
                 <x-wui-button href="{{ route('manage.user-groups')}}"  flat label="Cancel" class="hover:bg-base3 hover:text-textColor" />
-                <x-wui-button  type="submit" primary label="Save" wire:click="assignUserToGroups" class="bg-secondary text-white"/>
+                <x-wui-button  type="submit" primary label="Save" wire:click="updateUserGroups" class="bg-secondary text-white"/>
             </x-slot>
     </x-wui-card>
 </div>

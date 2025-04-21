@@ -5,6 +5,7 @@ namespace App\Livewire\Authorization\Assignment\UserToGroup;
 use App\Models\User;
 use App\Models\Group;
 use Livewire\Component;
+use App\Models\Permission;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Layout;
 
@@ -62,14 +63,32 @@ class EditUserGroups extends Component
             ->values();
     }
 
-    public function assignUserToGroups()
+    public function updateUserGroups()
     {
         $user = User::findOrFail($this->selectedUser);
-
         // Sync groups
         $user->groups()->sync($this->selectedPermissionGroupsIds);
 
+            // Re-fetch groups with permissions after syncing
+        $groupPermissions = Group::with('permissions')
+        ->whereIn('id', $this->selectedPermissionGroupsIds)
+        ->get()
+        ->flatMap->permissions
+        ->pluck('name')
+        ->unique()
+        ->values()
+        ->toArray();
+
+        
+        // Update the user's 'permissions' column with names (JSON or serialized array expected)
+        $user->update([
+            'permissions' => $groupPermissions, // assuming 'permissions' column is cast to array or JSON
+        ]);
+        
+
         session()->flash('message', 'User groups updated successfully!');
+
+        return redirect(route('manage.user-groups'));
     }
 
 

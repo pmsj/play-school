@@ -11,10 +11,12 @@ class ArticlePolicy
     public function manageArticles(User $user) {
         return $user->hasAnyPermission([
             'article:create',
+            'article:create:deny',
             'article:update',
             'article:delete',
             'article:update-any',
-            'article:delete-any']
+            'article:delete-any',
+            ]
         );
     }
 

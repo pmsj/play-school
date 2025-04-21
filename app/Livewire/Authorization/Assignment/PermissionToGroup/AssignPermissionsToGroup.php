@@ -34,15 +34,7 @@ class AssignPermissionsToGroup extends Component
         $this->permissions = Permission::all();
     }
 
-    public function updatedSelectedRole($value)
-    {
-       
-    }
 
-    public function updatePermissions()
-    {
-      
-    }
 
     #[Layout('layouts.dashboard')]
     public function render()

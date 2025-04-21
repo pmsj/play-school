@@ -40,11 +40,49 @@ class EditPermissionsToGroup extends Component
    public function updatePermissionsToGroup()
    {
        $this->IndividualPermissionGroupData->permissions()->sync($this->form->selectedPermissions);
-       session()->flash('message', 'Group Permissions updated successfully!');
+
+       // Update permissions of all users in this group
+        $this->syncUsersOfThisGroup();
+
+       session()->flash('message-one', 'Group Permissions updated successfully!');
+        session()->flash('message-two', 'Updated permissions of all users in the "' . $this->IndividualPermissionGroupData->name . '" group!');
+
 
        $this->redirect(route('manage.group-permissions'));
 
    }
+
+
+   protected function syncUsersOfThisGroup()
+    {
+        // Make sure permissions and users of the group are loaded
+        $this->IndividualPermissionGroupData->load('permissions', 'users.groups.permissions');
+
+        // Get this group's permission names
+        $updatedGroupPermissionNames = $this->IndividualPermissionGroupData->permissions->pluck('name')->toArray();
+
+        // Loop through all users belonging to this group
+        foreach ($this->IndividualPermissionGroupData->users as $user) {
+            // Get permissions from other groups (excluding this one)
+            $otherPermissions = $user->groups
+                ->filter(fn($group) => $group->id !== $this->IndividualPermissionGroupData->id)
+                ->flatMap->permissions
+                ->pluck('name')
+                ->toArray();
+
+            // Merge and make unique
+            $finalPermissions = collect(array_merge($otherPermissions, $updatedGroupPermissionNames))
+                ->unique()
+                ->values()
+                ->toArray();
+
+            // Update user's permissions JSON column
+            $user->update([
+                'permissions' => $finalPermissions,
+            ]);
+        }
+    }
+
 
     #[Layout('layouts.dashboard')]
     public function render()

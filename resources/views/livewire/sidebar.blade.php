@@ -124,11 +124,6 @@
                 <x-wui-button label="Manage user groups" flat class="bg-slate" icon="user-plus" position="top-start" class="" />
             </x-slot>
             <div class="">
-                <x-responsive-nav-link wire:navigate href="{{ route('assign.user-groups') }}" :active="request()->routeIs('assign.user-groups')">
-                    {{ __('Assign user group') }}
-                </x-responsive-nav-link>
-            </div>
-            <div class="">
                 <x-responsive-nav-link wire:navigate href="{{ route('manage.user-groups') }}" :active="request()->routeIs('manage.user-groups')">
                     {{ __('Manage user groups') }}
                 </x-responsive-nav-link>

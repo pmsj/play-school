@@ -8,9 +8,12 @@ use Livewire\Attributes\Validate;
 
 class PermissionForm extends Form
 {
-    #[Rule('required', message: 'Please enter a Permission name')]
-    public $name;
+    
+    #[Rule('required')]
+    public $groupName;
 
-    #[Rule('required', message: 'Add Description for what the permission does')]
-    public $description;
+    #[Rule('nullable')]
+    public $groupDescription;
+
+    public $selectedPermissions = [];
 }

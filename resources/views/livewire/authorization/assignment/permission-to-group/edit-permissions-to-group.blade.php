@@ -1,9 +1,9 @@
 <div>
-        <x-wui-button  href="{{ route('manage.group-permissions')}}" outline  label="White" icon="arrow-left" primary label="Go back" class="font-bold my-2 text-secondary bg-cardBackground3" xs/>
+        <x-wui-button  href="{{ route('manage.group-permissions')}}" outline  label="White" icon="arrow-left" primary label="Go back" class="font-bold my-2 text-primary bg-cardBackground3" xs/>
         <x-wui-card title=" Assign Permissions to Groups">
             <x-slot name="header" class="text-secondary text-lg font-extrabold py-5 flex items-center bg-cardBackground3 w-full rounded-t-md border-none">
                 <x-wui-icon name="key" class="w-6 h-6 mx-3 text-secondary" solid />
-                Assign permssions to group
+                Update group-permssions
             </x-slot>
             <h3 class="text-sm font-semibold mb-3">Enter a permission-group name</h3>
             <form >
@@ -24,7 +24,7 @@
                 </div>
 
                 <x-slot name="footer" class="flex justify-end gap-x-4">
-                    <x-wui-button flat label="Cancel" x-on:click="close" class="hover:bg-base3 hover:text-textColor" />
+                    <x-wui-button href="{{ route('manage.group-permissions') }}" flat label="Cancel"  class="hover:bg-base3 hover:text-textColor" />
                     <x-wui-button primary label="Save" wire:click="updatePermissionsToGroup" class="bg-secondary text-white"/>
                 </x-slot>
             </form>

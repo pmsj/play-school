@@ -80,7 +80,7 @@ Route::middleware('can:manage-articles, App\Models\Article')->group(function () 
 Route::middleware('can:manage-users')->group(function () {
    
     Route::get('/manage-users', ManageUsers::class)->name('index.user');
-    Route::get('/manage-users/edit/{id}', ManageUsers::class)->name('index.user');
+    // Route::get('/manage-users/edit/{user}', ManageUsers::class)->name('index.user');
 
     //Role
     Route::get('/role/create', CreateRole::class)->name('create.role');
@@ -95,7 +95,7 @@ Route::middleware('can:manage-users')->group(function () {
    Route::get('/assign-permissions-to-group/edit/{id}', EditPermissionsToGroup::class)->name('edit.group-permissions');
    Route::get('/manage-group-permissions', ManageGroupPermissions::class)->name('manage.group-permissions');
 
-   Route::get('/assign-user-to-groups', AssignUserGroups::class)->name('assign.user-groups');
+//    Route::get('/assign-user-to-groups', AssignUserGroups::class)->name('assign.user-groups'); //it is deleted- no longer needed
    Route::get('/assign-user-to-groups/edit/{id}', EditUserGroups::class)->name('edit.user-groups');
    Route::get('/manage-user-groups', ManageUserGroups::class)->name('manage.user-groups');
 

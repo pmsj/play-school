@@ -15,8 +15,7 @@ class ManageGroupPermissions extends Component
 
     public function mount()
     {
-        $this->groups = Group::all();
-        $this->permissions = Permission::all();
+        $this->groups = Group::with('permissions')->get();
     }
 
     #[Layout('layouts.dashboard')]
