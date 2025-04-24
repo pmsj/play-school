@@ -55,6 +55,9 @@ export default {
             },
         },
     },
+    fontFamily: {
+        jet: ['"JetBrains Mono"', ...defaultTheme.fontFamily.mono],
+      },
 
     plugins: [forms, typography],
 };

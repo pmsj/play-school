@@ -10,20 +10,21 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
         <title>{{ $title ?? 'Nanhe Kadam' }}</title>
         <!-- wireui -->
         <wireui:scripts />
-
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased  bg-base2 text-textColor">
+    <body class="font-sans font-jet antialiased  bg-base2 text-textColor">
         <x-banner />
 
         <div class="min-h-screen">
             @livewire('navigation-menu')
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="text textColor bg-cardBackground3 p-2 lg:p-0">
+                <header class="text textColor p-2 lg:p-0">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
@@ -35,6 +36,7 @@
                 {{ $slot }}
             </main>
         </div>
+        
         @livewireScriptConfig
     </body>
 </html>

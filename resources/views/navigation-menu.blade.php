@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white shadow border-t-2 border-primary sticky top-0 backdrop-blur-3xl z-50">
+<nav x-data="{ open: false }" class="bg-white  border-t-2 border-primary"> 
     <!-- Primary Navigation Menu -->
     <div x-cloak class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -28,8 +28,12 @@
                         {{ __('Articles') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('login') }}">
+                        {{ __('Login') }}
+                    </x-nav-link>
+                </div>
             </div>
-
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())

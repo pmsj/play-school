@@ -1,57 +1,24 @@
     <x-app-layout>
         <x-slot name="header">
-            <h2 class="font-semibold text-xl leading-tight">
-                {{ __('Dashboard') }}
-            </h2>
+           <div class="flex space-x-2 items-center">
+                <div>
+                    <x-wui-mini-button href="{{route('user.dashboard') }}"  rounded icon="home" flat gray hover:outline.negative focus:solid.positive class="hover:text-white hover:bg-primary"/>
+                </div>
+                <div>
+                    <h2 class="font-semibold text-xl leading-tight">
+                        {{ __('Dashboard') }}
+                    </h2>
+                </div>
+           </div>
         </x-slot>
-        <div class="my-10 mx-auto max-w-7xl p-5">
-            <div class="grid lg:grid-cols-12">
-                <div class="lg:col-span-3 rounded-lg bg-white">
-                    <!-- drop down links -->
-                    <div>
-                        <x-wui-dropdown class="">
-                            <x-slot name="trigger">
-                                <x-wui-button label="Account Settings" flat class="bg-slate" icon="user-circle" position="top-start" class="" />
-                            </x-slot>
-                            <div class="">
-                                <x-responsive-nav-link wire:navigate href="{{ route('profile.info') }}" :active="request()->routeIs('profile.info')">
-                                    {{ __('Profile') }}
-                                </x-responsive-nav-link>
-                            </div>
-                            <div class="">
-                                <x-responsive-nav-link wire:navigate href="{{ route('profile.password') }}" :active="request()->routeIs('profile.password')">
-                                    {{ __('Password') }}
-                                </x-responsive-nav-link>
-                            </div>
-                            <div class="">
-                                <x-responsive-nav-link wire:navigate href="{{ route('profile.security') }}" :active="request()->routeIs('profile.security')">
-                                    {{ __('Security') }}
-                                </x-responsive-nav-link>
-                            </div>
-                            <div class="">
-                                <x-responsive-nav-link wire:navigate href="{{ route('profile.delete') }}" :active="request()->routeIs('profile.delete')">
-                                    {{ __('Delete Account') }}
-                                </x-responsive-nav-link>
-                            </div>
-                      
-                        </x-wui-dropdown>
-                    </div>
-                    <!-- carousel -->
-                    <div>
-                        <x-wui-dropdown class="">
-                            <x-slot name="trigger">
-                                <x-wui-button label="Carousel" flat class="bg-slate" icon="photo" position="top-start" class="" />
-                            </x-slot>
-                            <div class="">
-                                <x-responsive-nav-link wire:navigate href="{{ route('create.carousel') }}" :active="request()->routeIs('create.carousel')">
-                                    {{ __('Create Carousel') }}
-                                </x-responsive-nav-link>
-                            </div>
-                        </x-wui-dropdown>
-                    </div>
+        <div class="mx-auto max-w-7xl p-3">
+            <div class="grid lg:grid-cols-12 gap-5">
+                <!-- sidebar -->
+                <div class="lg:col-span-3 rounded-lg">
+                    <livewire:sidebar/>
                 </div>
                 <div class="lg:col-span-9">
-                    <div class="mx-auto max-w-3xl">
+                    <div class="mx-auto max-w-5xl">
                         @if( isset($slot) ) {{ $slot }} @endif
                     </div>
                 </div>

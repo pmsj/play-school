@@ -3,11 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Role;
+use App\Models\Group;
 use App\Models\Article;
 use App\Models\Comment;
+use App\Models\Permission;
+use Laravel\Scout\Searchable;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Jetstream\HasProfilePhoto;
+use Illuminate\Support\Facades\Context;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,6 +28,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use HasTeams;
     use Notifiable;
+    use Searchable;
     use TwoFactorAuthenticatable;
 
     /**
@@ -33,6 +40,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'permissions',
+    ];
+
+    protected $attributes = [
+        'permissions' => '[]',
     ];
 
     /**
@@ -66,8 +78,20 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'permissions' => 'array',
         ];
     }
+
+    // TNT Search Exclusion
+    public function toSearchableArray()
+{
+    return [
+        'id' =>$this->id,
+        'name' => $this->name,
+        'email' => $this->email,
+        // Exclude permissions here!
+    ];
+}
 
     public static function booted()
     {
@@ -80,8 +104,63 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
-    public function articles()
+
+    // public function articles()
+    // {
+    //     return $this->hasMany(Article::class);
+    // }
+
+
+
+    public function groups()
     {
-        return $this->hasMany(Article::class);
+        return $this->belongsToMany(Group::class);
     }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'permissions_users');
+    }
+
+    public function wrote(Article $article) : bool {
+        return $this->id === $article->author_id;
+    }
+
+    public function didNotWrite(Article $article) : bool {
+        return $this->id !== $article->author_id;
+    }
+
+    //new mehtods --------------------------------------------------------
+
+
+    public function getAllPermissions() {
+        if (Auth::user()->id === $this->id && Context::hasHidden('permissions')) {
+            return Context::getHidden('permissions');
+        }
+
+        $groupPermissions = $this
+            ->groups()
+            ->with('permissions')
+            ->get()
+            ->pluck('permissions')
+            ->flatten()
+            ->pluck('name');
+
+        $permissions = collect($this->permissions);
+
+        return $groupPermissions->merge($permissions)->unique()->map(function($item) {
+            return strtolower($item);
+        });
+    }
+
+    public function hasPermission(string $permission) : bool {
+        return $this->getAllPermissions()->contains(strtolower($permission));
+    }
+
+    public function hasAnyPermission(array $permissions) : bool {
+        $perms = array_map('strtolower', $permissions);
+
+        return $this->getAllPermissions()->intersect($perms)->isNotEmpty();
+    }
+    
 }

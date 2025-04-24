@@ -17,6 +17,7 @@
             <div class="justify-start lg:z-10">
                 <div class="lg:cols-span-3 flex flex-col space-y-2  mr-16 text-center lg:sticky top-32 h-auto">
                     <div class="">
+                        @can('create', \App\Models\Article::class)
                         <a href="{{ route('create.article') }}">
                             <div class="rounded-3xl">
                                <x-wui-button class="rounded-full bg-secondary hover:border-white">
@@ -24,6 +25,7 @@
                                </x-wui-button>
                             </div>
                         </a>
+                        @endcan
                     </div>
                     <div class="">
                         <div class="rounded-3xl px-4 py-2">
@@ -61,8 +63,8 @@
                     @endforeach
                 @else
                 <div class="mx-auto max-w-7xl mt-10">
-                    <x-wui-alert icon="computer-desktop" class="bg-base1 p-20 justify-center items-center border border-primary">
-                        <x-slot name="title" class="font-bold text-center lg:text-lg bg-base2 p-2 rounded">
+                    <x-wui-alert icon="computer-desktop" class="bg-cardBackground3 p-20 justify-center items-center border">
+                        <x-slot name="title" class="text-xs lg:text-sm text-secondary font-bold text-center  bg-white p-1 rounded-full">
                             Be the first one to post an Article!
                         </x-slot>
                     </x-wui-alert>
