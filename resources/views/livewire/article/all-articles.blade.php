@@ -63,8 +63,8 @@
                     @endforeach
                 @else
                 <div class="mx-auto max-w-7xl mt-10">
-                    <x-wui-alert icon="computer-desktop" class="bg-base1 p-20 justify-center items-center border border-primary">
-                        <x-slot name="title" class="font-bold text-center lg:text-lg bg-base2 p-2 rounded">
+                    <x-wui-alert icon="computer-desktop" class="bg-cardBackground3 p-20 justify-center items-center border">
+                        <x-slot name="title" class="text-xs lg:text-sm text-secondary font-bold text-center  bg-white p-1 rounded-full">
                             Be the first one to post an Article!
                         </x-slot>
                     </x-wui-alert>

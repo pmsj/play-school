@@ -8,5 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class ImageCarousel extends Model implements HasMedia
 {
+
     use InteractsWithMedia;
+
+
+    protected $fillable = [
+        'title',
+        'subtitle',
+    ];
 }

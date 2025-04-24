@@ -28,7 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Gate::define('manage-users', function(User $user) {
             return $user->hasAnyPermission(['user:create', 'permission:create']);
-            // return true;
          });
 
     }

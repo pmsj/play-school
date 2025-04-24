@@ -34,7 +34,9 @@ class ArticlePolicy
     public function create(User $user): Response
     {
         if ($user->hasPermission('article:create:deny')) {
-            return Response::denyAsNotFound();
+            // return Response::denyAsNotFound();
+            return Response::deny('You do not have permission to perform this action.');
+
         }
 
         return $user->hasPermission('article:create') ?

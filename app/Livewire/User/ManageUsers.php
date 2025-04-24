@@ -8,6 +8,7 @@ use Livewire\Attributes\Layout;
 
 class ManageUsers extends Component
 {
+    public $subheading = 'Manage users';
     public $users;
 
     public function mount()

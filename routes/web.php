@@ -20,6 +20,7 @@ use App\Livewire\Authorization\Role\AllRoles;
 use App\Livewire\Authorization\Role\CreateRole;
 use App\Livewire\Authorization\Role\ManageRole;
 use App\Livewire\Profile\UpdateProfileInformationForm;
+use App\Livewire\Authorization\Permission\EditPermission;
 use App\Livewire\Authorization\Permission\ManagePermission;
 use App\Livewire\Authorization\Assignment\UserToGroup\EditUserGroups;
 use App\Livewire\Authorization\Assignment\UserToGroup\AssignUserGroups;
@@ -72,7 +73,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/articles', AllArticles::class)->name('index.article');
 Route::get('/article/{article:slug}', ArticleShow::class)->name('show.article');
 
-Route::middleware('can:manage-articles, App\Models\Article')->group(function () {
+Route::middleware('can:manage-articles, \App\Models\Article')->group(function () {
     Route::get('/article/create', Articles::class)->name('create.article');
     Route::get('/article/{article:slug}/edit', EditArticle::class)->name('edit.article');
 });
@@ -88,6 +89,7 @@ Route::middleware('can:manage-users')->group(function () {
 
    // Permission
    Route::get('/manage-permissions', ManagePermission::class)->name('index.permission');
+   Route::get('/manage-permissions/{permission}/edit', EditPermission::class)->name('edit.permission');
 
 
 
@@ -95,7 +97,7 @@ Route::middleware('can:manage-users')->group(function () {
    Route::get('/assign-permissions-to-group/edit/{id}', EditPermissionsToGroup::class)->name('edit.group-permissions');
    Route::get('/manage-group-permissions', ManageGroupPermissions::class)->name('manage.group-permissions');
 
-//    Route::get('/assign-user-to-groups', AssignUserGroups::class)->name('assign.user-groups'); //it is deleted- no longer needed
+
    Route::get('/assign-user-to-groups/edit/{id}', EditUserGroups::class)->name('edit.user-groups');
    Route::get('/manage-user-groups', ManageUserGroups::class)->name('manage.user-groups');
 

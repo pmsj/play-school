@@ -16,6 +16,7 @@ class Datatable extends Component
     public $paginate;
     public $checked = [];
     public $query;
+    public $editRoutePrefix = null;
 
     public function mount($model, $exclude = '', $paginate = 10)
     {
@@ -28,7 +29,7 @@ class Datatable extends Component
     public function updatingPaginate($value)
     {
         $this->resetPage();
-        $this->emitUp('paginateUpdated', $value);
+        $this->dispatch('paginateUpdated', $value);
     }
 
     public function columns()
@@ -61,6 +62,13 @@ class Datatable extends Component
     {
         $this->checkedRecords()->delete();
         $this->checked = [];
+    }
+
+    public function edit($id)
+    {
+        if (!$this->editRoutePrefix) return;
+
+        return redirect()->route($this->editRoutePrefix, $id);
     }
 
     public function records()

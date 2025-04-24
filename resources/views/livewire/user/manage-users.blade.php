@@ -1,20 +1,21 @@
 <div>
+        <p class="text-sm text-gray-500 mt-1">{{ $subheading }}</p>
     <div class="mb-5">
             @if (session()->has('message'))
                 <x-wui-alert title="{{ session('message') }} " positive squared class="bg-green-200" />
-            @endif
-    </div>
-    <div class="flex justify-between my-2 lg:my-2">
-        <div>
-            <x-wui-button @click="Livewire.dispatchTo('user.create-user', 'createNewUser')" type="submit" icon="plus-circle" primary label="New user"  class="bg-primary"/>
-        </div>
-        <div></div>
+           @endif
     </div>
     <!-- in exclude prop, always pass comma seperated column names and there should not be any gap in between column names -->
     <livewire:user.create-user />
 
-    <section class="container mx-auto">
+<section class="container mx-auto">
   <div class="w-full mb-8  rounded-lg">
+    <div class="flex justify-between mb-2">
+          <div>
+              <x-wui-button @click="Livewire.dispatchTo('user.create-user', 'createNewUser')" type="submit" icon="plus-circle" primary label="New user"  class="bg-primary shadow-sm"/>
+          </div>
+          <div></div>
+    </div>
     <div class="overflow-x-auto">
       <table class="min-w-full ">
         <thead>

@@ -11,7 +11,7 @@
       <div></div>
    </div>
    <!-- in exclude prop, always pass comma seperated column names and there should not be any gap in between column names -->
-   <livewire:datatable.datatable model="App\Models\Permission" exclude="created_at,updated_at" paginate="5" /> 
+   <livewire:datatable.datatable model="App\Models\Permission" exclude="created_at,updated_at" paginate="5" :edit-route-prefix="'edit.permission'" /> 
    <livewire:authorization.permission.create-permission />
 </div>
 

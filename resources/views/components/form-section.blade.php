@@ -4,7 +4,7 @@
     'description' => null // Default to null if not provided
     ])
 
-<div {{ $attributes->merge(['class' => 'md:grid md:gap-6']) }}>
+<div {{ $attributes->merge(['class' => 'md:grid md:gap-6 bg-white p-5 m-5 rounded-lg ']) }}>
     <x-section-title>
         <x-slot name="title">{{ $title }}</x-slot>
         <x-slot name="description">{{ $description }}</x-slot>

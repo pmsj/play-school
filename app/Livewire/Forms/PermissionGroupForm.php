@@ -6,14 +6,14 @@ use Livewire\Form;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
 
-class PermissionForm extends Form
+class PermissionGroupForm extends Form
 {
-      
+    
     #[Rule('required')]
-    public $name;
+    public $groupName;
 
     #[Rule('nullable')]
-    public $description;
+    public $groupDescription;
 
     public $selectedPermissions = [];
 }
