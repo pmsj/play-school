@@ -49,54 +49,37 @@ Route::middleware([
 });
 
 Route::middleware(['auth'])->group(function () {
-    // Route::get('/article/create', Articles::class)->name('create.article');
-    // Route::get('/article/{article:slug}/edit', EditArticle::class)->name('edit.article');
-    Route::get('/carousel/create', CarouselItem::class)->name('create.carousel');
     Route::get('/user/{user}/articles', UserArticles::class)->name('user.articles');
-
-//     Route::get('/manage-users', ManageUsers::class)->name('index.user');
-
-//     //Role
-//     Route::get('/role/create', CreateRole::class)->name('create.role');
-//     Route::get('/manage-roles', ManageRole::class)->name('index.role');
-
-//    // Permission
-//    Route::get('/manage-permissions', ManagePermission::class)->name('index.permission');
-
-
-//    // assign roles and permissions
-//    Route::get('/assign-roles-and-permissions', AssignRolesAndPermissions::class)->name('index.assignpermission');
-
-//    Route::get('/assign-permissions-to-role', AssignPermissionsToRole::class)->name('assign-permission.to-role');
 });
+
 //Article ----> public links
 Route::get('/articles', AllArticles::class)->name('index.article');
 Route::get('/article/{article:slug}', ArticleShow::class)->name('show.article');
 
-Route::middleware('can:manage-articles, \App\Models\Article')->group(function () {
+//Article
+Route::middleware('can:manage-articles, App\Models\Article')->group(function () {
     Route::get('/article/create', Articles::class)->name('create.article');
     Route::get('/article/{article:slug}/edit', EditArticle::class)->name('edit.article');
 });
 
-Route::middleware('can:manage-users')->group(function () {
-   
-    Route::get('/manage-users', ManageUsers::class)->name('index.user');
-    // Route::get('/manage-users/edit/{user}', ManageUsers::class)->name('index.user');
-
-    //Role
-    Route::get('/role/create', CreateRole::class)->name('create.role');
-    Route::get('/manage-roles', ManageRole::class)->name('index.role');
-
-   // Permission
+// Permission
+Route::middleware('can:manage-permissions, App\Models\Permission')->group(function () {
    Route::get('/manage-permissions', ManagePermission::class)->name('index.permission');
    Route::get('/manage-permissions/{permission}/edit', EditPermission::class)->name('edit.permission');
+});
 
+// Carousel
+Route::middleware('can:manage-carousel, App\Models\ImageCarousel')->group(function () {
+    Route::get('/carousel/create', CarouselItem::class)->name('create.carousel');
+ });
 
-
+Route::middleware('can:manage-users')->group(function () { 
+    Route::get('/manage-users', ManageUsers::class)->name('index.user');
+    // Route::get('/manage-users/edit/{user}', ManageUsers::class)->name('index.user');
+ 
    Route::get('/assign-permissions-to-group', AssignPermissionsToGroup::class)->name('assign.group-permissions');
    Route::get('/assign-permissions-to-group/edit/{id}', EditPermissionsToGroup::class)->name('edit.group-permissions');
    Route::get('/manage-group-permissions', ManageGroupPermissions::class)->name('manage.group-permissions');
-
 
    Route::get('/assign-user-to-groups/edit/{id}', EditUserGroups::class)->name('edit.user-groups');
    Route::get('/manage-user-groups', ManageUserGroups::class)->name('manage.user-groups');

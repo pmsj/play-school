@@ -4,7 +4,7 @@
     </h2>
 </x-slot>
 
-<div class="flex flex-col py-12 space-y-6">
+<div class="flex flex-col">
         <div class="my-5 mx-auto max-w-5xl">
             @if (session()->has('message'))
             <x-wui-alert title="{{ session('message') }} " positive squared class="bg-green-200 rounded-2xl" />
@@ -12,12 +12,12 @@
         </div>
     <div>
         <!-- left area in 2column grid layout -->
-        <div class="mx-auto max-w-7xl grid lg:grid-cols-[1fr_2fr] gap-2 p-5">
+        <div class="mx-auto max-w-7xl grid lg:grid-cols-[1fr_2fr] gap-2 p-5 lg:p-0">
             <!-- top most div on left -->
             <div class="justify-start lg:z-10">
                 <div class="lg:cols-span-3 flex flex-col space-y-2  mr-16 text-center lg:sticky top-32 h-auto">
                     <div class="">
-                        @can('create', \App\Models\Article::class)
+                        @can('create', App\Models\Article::class)
                         <a href="{{ route('create.article') }}">
                             <div class="rounded-3xl">
                                <x-wui-button class="rounded-full bg-secondary hover:border-white">

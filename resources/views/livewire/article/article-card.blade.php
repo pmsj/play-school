@@ -1,6 +1,6 @@
 <div class="my-5">
     @if (!$articleDeleted)
-    <div class="bg-cardBackground3 rounded-2xl border">
+    <div class="bg-white rounded-2xl border">
         <a href="{{ route('show.article', $article->slug)}}">
             <div class="h-28 w-full object-contain rounded-t-2xl overflow-hidden  max-w-7xl">
 
@@ -31,7 +31,6 @@
                 </div>
                 <!-- right div ----Edit articles-->
                 <div class="text-sm flex">
-                    @can('view', $article)
                     <x-wui-dropdown>
                         <x-wui-dropdown.header label="Options">
                             @can('update', $article)
@@ -42,7 +41,6 @@
                             @endcan
                         </x-wui-dropdown.header>
                     </x-wui-dropdown>
-                    @endcan
                 </div>
             </div>
         </div>

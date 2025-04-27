@@ -8,18 +8,20 @@ use Illuminate\Auth\Access\Response;
 
 class ArticlePolicy
 {
+  
     public function manageArticles(User $user) {
+        
         return $user->hasAnyPermission([
             'article:create',
-            'article:create:deny',
             'article:update',
             'article:delete',
             'article:update-any',
-            'article:delete-any',
+            'article:delete-any'
             ]
         );
     }
 
+    
     /**
      * Determine whether the user can view any models.
      */
@@ -33,10 +35,9 @@ class ArticlePolicy
      */
     public function create(User $user): Response
     {
+        
         if ($user->hasPermission('article:create:deny')) {
-            // return Response::denyAsNotFound();
-            return Response::deny('You do not have permission to perform this action.');
-
+            return Response::denyAsNotFound();
         }
 
         return $user->hasPermission('article:create') ?

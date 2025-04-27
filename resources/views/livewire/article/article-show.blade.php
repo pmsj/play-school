@@ -1,9 +1,9 @@
 <x-slot name="header">
-    <div class="flex space-x-5 lg:space-x-10 items-center">
+    <div class="flex space-x-5 lg:space-x-10 items-center text-secondary">
       <div class="text-center">
             <div>
                 <a wire:navigate href="{{ route('index.article') }}" class="">
-                <x-wui-mini-button primary rounded icon="chevron-double-left" class="bg-secondary font-bold hover:shadow-lg"/>
+                <x-wui-mini-button primary rounded icon="chevron-double-left" class="bg-primary font-bold hover:shadow-lg"/>
             </a>
             </div>
             <div>
@@ -61,10 +61,10 @@
                     <!-- bottom div -->
                     <div class="space-y-5">
                         <div class="mt-10 space-y-2">
-                            <div class="text-xl lg:text-3xl font-bold">{{ $article->title }}</div>
-                            <div class="flex text-sm space-x-2">
-                                <div class="">{{ $article->created_at->diffForHumans() }}</div>
-                                <div class="">{{ $article->read_time }} mins read</div>
+                            <div class="text-xl font-bold">{{ $article->title }}</div>
+                            <div class="flex text-xs space-x-2">
+                                <div class="">{{ $article->created_at->diffForHumans() }}.</div>
+                                <div class="">{{ $article->read_time }} min(s) read</div>
                             </div>
                         </div>
                         <div class="space-y-4">
