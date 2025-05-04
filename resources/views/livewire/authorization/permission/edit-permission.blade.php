@@ -16,7 +16,7 @@
                 </div>
                 </div>
                 <x-slot name="footer" class="flex items-center justify-between">
-                    <x-wui-button wire:click="updateRole"  label="Update permission" class="bg-secondary" type="submit" />
+                    <x-wui-button wire:click="updatePermission"  label="Update permission" class="bg-secondary" type="submit" />
                     <x-wui-button href="{{ route('index.permission') }}" outline secondary label="Cancel" class="text-black" type="submit"/>
                 </x-slot>
             </form>

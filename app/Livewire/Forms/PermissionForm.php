@@ -9,10 +9,10 @@ use Livewire\Attributes\Validate;
 class PermissionForm extends Form
 {
       
-    #[Rule('required')]
+    #[Rule('required|unique:permissions,name')]
     public $name;
 
-    #[Rule('nullable')]
+    #[Rule('required')]
     public $description;
 
     public $selectedPermissions = [];

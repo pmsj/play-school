@@ -105,12 +105,10 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    // public function articles()
-    // {
-    //     return $this->hasMany(Article::class);
-    // }
-
-
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 
     public function groups()
     {
@@ -123,11 +121,11 @@ class User extends Authenticatable
     }
 
     public function wrote(Article $article) : bool {
-        return $this->id === $article->author_id;
+        return $this->id === $article->user_id;
     }
 
     public function didNotWrite(Article $article) : bool {
-        return $this->id !== $article->author_id;
+        return $this->id !== $article->user_id;
     }
 
     //new mehtods --------------------------------------------------------

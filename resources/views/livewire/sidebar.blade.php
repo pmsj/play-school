@@ -30,6 +30,7 @@
     </div>
 
     <!-- Articles -->
+    @can('manage-articles', App\Models\Article::class)
     <div class="hover:text-primary">
         <x-wui-dropdown class="">
             <x-slot name="trigger">
@@ -40,27 +41,35 @@
                     {{ __('All Articles') }}
                 </x-responsive-nav-link>
             </div>
+            @can('create', App\Models\Article::class)
             <div class="">
                 <x-responsive-nav-link wire:navigate href="{{ route('create.article') }}" :active="request()->routeIs('create.article')">
                     {{ __('Create Article') }}
                 </x-responsive-nav-link>
             </div>
+            @endcan
         </x-wui-dropdown>
     </div>
+    @endcan
     <!-- carousel -->
+    @can('manage-carousel', App\Models\ImageCarousel::class)
     <div class="hover:text-primary">
         <x-wui-dropdown class="">
             <x-slot name="trigger">
                 <x-wui-button label="Carousel" flat class="bg-slate" icon="photo" position="top-start" class="" />
             </x-slot>
+            @can('create', App\Models\ImageCarousel::class)
             <div class="">
                 <x-responsive-nav-link wire:navigate href="{{ route('create.carousel') }}" :active="request()->routeIs('create.carousel')">
                     {{ __('Create Carousel') }}
                 </x-responsive-nav-link>
             </div>
+            @endcan
         </x-wui-dropdown>
     </div>
+    @endcan
     <!-- Users -->
+    @can('manage-users', App\Models\User::class)
     <div class="hover:text-primary">
         <x-wui-dropdown class="">
             <x-slot name="trigger">
@@ -73,20 +82,10 @@
             </div>
         </x-wui-dropdown>
     </div>
-    <!-- Role -->
-    <div class="hover:text-primary">
-        <x-wui-dropdown class="">
-            <x-slot name="trigger">
-                <x-wui-button label="Manage Roles" flat class="bg-slate" icon="user-plus" position="top-start" class="" />
-            </x-slot>
-            <div class="">
-                <x-responsive-nav-link wire:navigate href="{{ route('index.role') }}" :active="request()->routeIs('index.role')">
-                    {{ __('Manage Role') }}
-                </x-responsive-nav-link>
-            </div>
-        </x-wui-dropdown>
-    </div>
+    @endcan
+    
     <!-- Permission -->
+    @can('manage-permissions', App\Models\Permission::class)
     <div class="hover:text-primary">
         <x-wui-dropdown>
             <x-slot name="trigger">
@@ -99,6 +98,9 @@
             </div>
         </x-wui-dropdown>
     </div>
+    @endcan
+
+    @can('manage-users')
      <!-- Manage Group Permissions -->
      <div class="hover:text-primary">
         <x-wui-dropdown>
@@ -130,4 +132,5 @@
             </div>
         </x-wui-dropdown>
     </div>
+    @endcan
 </div>

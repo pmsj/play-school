@@ -17,6 +17,11 @@ class Article extends Model implements HasMedia
 {
     Use HasFactory, TaggableTrait, CommentableTrait, InteractsWithMedia;
 
+    protected $fillable = [
+        'title',
+        'body'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
