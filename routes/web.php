@@ -75,7 +75,7 @@ Route::middleware('can:manage-carousel, App\Models\ImageCarousel')->group(functi
 
 Route::middleware('can:manage-users')->group(function () { 
     Route::get('/manage-users', ManageUsers::class)->name('index.user');
-    // Route::get('/manage-users/edit/{user}', ManageUsers::class)->name('index.user');
+    Route::get('/manage-users/edit/{user}', ManageUsers::class)->name('index.user');
  
    Route::get('/assign-permissions-to-group', AssignPermissionsToGroup::class)->name('assign.group-permissions');
    Route::get('/assign-permissions-to-group/edit/{id}', EditPermissionsToGroup::class)->name('edit.group-permissions');
